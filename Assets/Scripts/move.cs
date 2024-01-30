@@ -26,7 +26,7 @@ public class move : MonoBehaviour
     bool triggerValue, up, down;
     Vector2 fingerPress;
     //Modify this value for the move speed control
-    public const float moveSpeed = 3f;
+    public const float moveSpeed = 0.1f;
     Vector3 plusX = new Vector3(moveSpeed, 0f, 0f);
     Vector3 minusX = new Vector3(-moveSpeed, 0f, 0f);
     Vector3 plusZ = new Vector3(0f, 0f, moveSpeed);
@@ -38,9 +38,11 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (triggerReference != null 
-            && triggerReference.action != null 
-            && triggerReference.action.ReadValue<bool>() 
+
+        if (triggerReference != null
+            && triggerReference.action != null
+            && triggerReference.action.ReadValue<float>() > 0.5
+
             && axisReference != null 
             && axisReference.action != null)
         {
@@ -49,6 +51,7 @@ public class move : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(xRController.gameObject.transform.rotation.eulerAngles);
             Matrix4x4 m = Matrix4x4.Rotate(rotation);
             Vector3 translateVect = new Vector3(0, 0, 0);
+            Debug.Log("x = " + value.x + ", y = " + value.y);
 
             if (value.x < -0.25)
             {
@@ -68,14 +71,15 @@ public class move : MonoBehaviour
                 translateVect = m.MultiplyPoint3x4(plusX);
                 //translateVect.y = 0;
             }
-            translateVect *= value;
+
+            //translateVect *= value;
             //translateVect.y = 0;
             // TODO: check for building colision,
             //before moving the rig, you can check if it's still in a certain area and modify the translation vector if it's trying to get out
             if (RigContainer.transform.position.y + translateVect.y < minHeight){
-                translateVect.y -= minHeight;
+                translateVect.y = 0;
             } else if (RigContainer.transform.position.y + translateVect.y > maxHeight){
-                translateVect.y -= maxHeight;
+                translateVect.y = 0;
             }
 
             RigContainer.transform.position += translateVect;
