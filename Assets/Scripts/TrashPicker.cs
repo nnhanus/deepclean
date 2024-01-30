@@ -24,15 +24,17 @@ public class TrashPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasTrash)
-        {
-            grabbed.transform.SetPositionAndRotation(transform.position, initialRotation * transform.rotation);
-            grabbed.transform.localScale = transform.localScale;
-        }
+        //if (hasTrash)
+        //{
+           // Debug.Log("has trash");
+          //  grabbed.transform.SetPositionAndRotation(transform.position, initialRotation * transform.rotation);
+           // grabbed.transform.localScale = transform.localScale;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "Trash")
         {
             Debug.Log("hit trash");
@@ -41,12 +43,21 @@ public class TrashPicker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Trash" && m_GripReference.action.ReadValue<float>() > float.Epsilon)
+        if (other.tag == "Trash" && m_GripReference.action.ReadValue<float>() > float.Epsilon && !hasTrash)
         {
-            Debug.Log("pick trash");
-            grabbed = other.transform.parent.gameObject;
             hasTrash = true;
+            Debug.Log("pick trash");
+            grabbed = other.gameObject;
+            Debug.Log(grabbed);
+            
             initialRotation = grabbed.transform.rotation;
+        }
+        if (hasTrash)
+        {
+            Debug.Log("has trash");
+            //grabbed.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            grabbed.transform.position = transform.position;
+            //grabbed.transform.localScale = transform.localScale;
         }
     }
 
