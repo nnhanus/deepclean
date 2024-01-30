@@ -42,7 +42,6 @@ public class move : MonoBehaviour
         if (triggerReference != null
             && triggerReference.action != null
             && triggerReference.action.ReadValue<float>() > 0.5
-
             && axisReference != null 
             && axisReference.action != null)
         {

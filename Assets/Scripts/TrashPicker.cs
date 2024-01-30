@@ -12,7 +12,7 @@ public class TrashPicker : MonoBehaviour
 
     public Collider handSphere;
 
-    private GameObject grabbed;
+    public GameObject grabbed;
     public bool hasTrash;
     private Quaternion initialRotation;
     // Start is called before the first frame update
