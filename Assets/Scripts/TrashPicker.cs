@@ -55,14 +55,16 @@ public class TrashPicker : MonoBehaviour
         if (hasTrash)
         {
             Debug.Log("has trash");
+            grabbed.transform.SetParent(transform);
             //grabbed.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            grabbed.transform.position = transform.position;
+            //grabbed.transform.position = transform.position;
             //grabbed.transform.localScale = transform.localScale;
         }
     }
 
     public void emptyTrash()
     {
+        grabbed.transform.SetParent(null);
         grabbed = null;
         hasTrash = false;
     }
