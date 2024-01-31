@@ -9377,6 +9377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GripReference: {fileID: -1289947363739713011, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
   handSphere: {fileID: 547596528}
+  grabbed: {fileID: 0}
   hasTrash: 0
 --- !u!54 &547596530
 Rigidbody:
