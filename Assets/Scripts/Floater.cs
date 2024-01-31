@@ -6,7 +6,7 @@ public class Floater : MonoBehaviour
 {
     // User Inputs
     public float degreesPerSecond = 15.0f;
-    public float amplitude = 0.2f;
+    public float amplitude = 0.1f;
     public float frequency = 1f;
 
     // Position Storage Variables
@@ -20,16 +20,18 @@ public class Floater : MonoBehaviour
         // Store the starting position & rotation of the object
         posOffset = transform.position;
         size=GetComponent<Renderer>().bounds.size;
+        //Debug.Log(size.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // Spin object around Y-Axis
         transform.Rotate(new Vector3(Time.deltaTime * degreesPerSecond, Time.deltaTime * degreesPerSecond, Time.deltaTime * degreesPerSecond), Space.World);
-
         // Float up/down with a Sin()
         tempPos = posOffset;
+
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * (amplitude*size.y);
 
         transform.position = tempPos;

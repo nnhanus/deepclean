@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+// should use game manager to track number of garbage in the ocean and limit it
     public GameObject[] trashPrefabs;
 
 // public GameObject [] fishPrefabs; 
 
     public bool isVisible = false;
-
-    //[Range(0f, 1f)]
 
     public float minSpawnDelay = 1f;
     public float maxSpawnDelay = 2f;
@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     public GameObject player;
     public int spawnLimit = 4;
     private Vector3 spawnPoint;
-    private float lastRotate=0f;
+    //private float lastRotate=0f;
     public float posVar = 1;
     //private int[] randDirection;
     private int[] direction = {-1,1};
@@ -52,20 +52,20 @@ public class Spawner : MonoBehaviour
         
         while (true)
         {
-            //if player moves more than .25 or looks arounds more than 5 degrees, spawn more trash
+            //if player moves more than .25 . can also add when looks arounds more than 5 degrees, spawn more trash
             if (Vector3.Distance (spawnPoint, player.transform.position)>0.25f /*|| Mathf.Abs(player.transform.rotation.eulerAngles.z-lastRotate)>5*/){
                 trashCount=0;
             }
             //get player rig location and set it to spawnPoint
-            lastRotate=player.transform.rotation.eulerAngles.z;
+            //lastRotate=player.transform.rotation.eulerAngles.z;
             spawnPoint = player.transform.position;
             //if under water and havent spawned too many trash
             if(spawnPoint.y<0 && trashCount< spawnLimit){
                 GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
                 Vector3 position = new Vector3();
                 // min and max for scene bounds
-                position.x = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.x+posVar, spawnPoint.x-posVar),0),2*spawnBoundsSize.x);
-                position.y = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.y+posVar, spawnPoint.y-posVar),spawnBoundsSize.y),-spawnBoundsSize.y);
+                position.x = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.x+posVar, spawnPoint.x-posVar), spawnBoundsSize.x),-spawnBoundsSize.x);
+                position.y = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.y+posVar, spawnPoint.y-posVar),0),-2*spawnBoundsSize.y);
                 position.z = Mathf.Max(Mathf.Min(direction[Random.Range(0,2)]*Random.Range(spawnPoint.z+posVar, spawnPoint.z+0.1f),spawnBoundsSize.z),-spawnBoundsSize.z);
 
                 
