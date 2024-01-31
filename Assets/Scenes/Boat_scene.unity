@@ -38,7 +38,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28249,15 +28251,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1996170006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e03ecbf33ac504341bc29046f1b7c5e9, type: 3}
+  m_Script: {fileID: 11500000, guid: b0c86374c52fe8042982b29bd999f82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TriggerReference: {fileID: 0}
   m_AxisReference: {fileID: 0}
   RigContainer: {fileID: 1996170006}
-  xRController: {fileID: 1864412376}
-  minHeight: -50
-  maxHeight: 50
+  xRController: {fileID: 1492593667}
+  minHeight: -20
+  maxHeight: 20
 --- !u!1 &1998220209
 GameObject:
   m_ObjectHideFlags: 0
