@@ -15,10 +15,12 @@ public class TrashPicker : MonoBehaviour
     public GameObject grabbed;
     public bool hasTrash;
     private Quaternion initialRotation;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         hasTrash = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,9 @@ public class TrashPicker : MonoBehaviour
         {
             Debug.Log("has trash");
             grabbed.transform.SetParent(transform);
+
+            //play movement sound
+            audioSource.Play();
             //grabbed.transform.SetPositionAndRotation(transform.position, transform.rotation);
             //grabbed.transform.position = transform.position;
             //grabbed.transform.localScale = transform.localScale;

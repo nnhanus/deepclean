@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
     private int[] direction = {-1,1};
     private int trashCount =0;
     // public float maxLifetime = 5f;
+    private AudioSource audioSource;
 
      private Vector3 spawnBoundsSize;
      private Collider collider;
@@ -33,11 +34,14 @@ public class Spawner : MonoBehaviour
     //    StartCoroutine(Spawn());
    // }
 
-    
+    //could change to OnEnable
     private void Start()
     {
          collider = GetComponent<Collider>();
          spawnBoundsSize = 0.5f*collider.bounds.size;
+         audioSource = GetComponent<AudioSource>();
+         audioSource.Play();
+         trashCount =0;
          StartCoroutine(Spawn());
     }
     
@@ -45,6 +49,7 @@ public class Spawner : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        audioSource.Stop();
     }
 
     private IEnumerator Spawn()
