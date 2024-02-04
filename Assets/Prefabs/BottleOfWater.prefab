@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 215407527049424049}
   - component: {fileID: -8364592240637263018}
   - component: {fileID: 2977896306646513814}
+  - component: {fileID: 5109589811664067861}
   m_Layer: 0
   m_Name: BottleOfWater
   m_TagString: Trash
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 15
   amplitude: 0.2
+--- !u!64 &5109589811664067861
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215407527047426673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300000, guid: bfe4bd7ca2c7a254dbc9bcd23bb71cbe, type: 3}

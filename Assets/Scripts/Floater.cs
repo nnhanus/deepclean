@@ -20,7 +20,8 @@ public class Floater : MonoBehaviour
         // Store the starting position & rotation of the object
         startPos = transform.position;
         size=GetComponent<Renderer>().bounds.size;
-        GetComponent<Rigidbody>().AddForce(Vector3.up*0.05f, ForceMode.VelocityChange) ;
+        amplitude=amplitude*(size.y);
+        GetComponent<Rigidbody>().AddForce(Vector3.down*0.05f, ForceMode.VelocityChange) ;
     }
 
     // Update is called once per frame
@@ -35,8 +36,21 @@ public class Floater : MonoBehaviour
         //transform.position = tempPos;
 
        
-        if (startPos.y -transform.position.y <(-Mathf.Sqrt(size.y)) ||transform.position.y >=0 ) { GetComponent<Rigidbody>().AddForce(Vector3.down*amplitude, ForceMode.Force); }
-        if(startPos.y-transform.position.y > (Mathf.Sqrt(size.y)) || transform.position.y <= -16) { GetComponent<Rigidbody>().AddForce(Vector3.up*amplitude, ForceMode.Force); }
+        if (startPos.y -transform.position.y <Mathf.Min((-Mathf.Sqrt(size.y)),-0.2f) ||transform.position.y >=-1 ) {
+            if(transform.position.y>0) {
+                transform.position=new Vector3(transform.position.x,0,transform.position.z);
+                GetComponent<Rigidbody>().AddForce(Vector3.down*0.05f, ForceMode.VelocityChange); 
+                }
+             GetComponent<Rigidbody>().AddForce(Vector3.down*amplitude, ForceMode.Force); 
+        }
+        else if(startPos.y-transform.position.y > Mathf.Max((Mathf.Sqrt(size.y)),0.2f) || transform.position.y <= -15) {
+            if(transform.position.y<-16) {
+                transform.position=new Vector3(transform.position.x,-16,transform.position.z);
+                GetComponent<Rigidbody>().AddForce(Vector3.up*0.05f, ForceMode.VelocityChange); 
+                }            
+             GetComponent<Rigidbody>().AddForce(Vector3.up*amplitude, ForceMode.Force); 
+            // Debug.Log("Going up");
+             }
         
     }
 }

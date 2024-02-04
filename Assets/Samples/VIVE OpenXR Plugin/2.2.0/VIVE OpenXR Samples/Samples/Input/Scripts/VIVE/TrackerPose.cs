@@ -9,8 +9,8 @@ namespace VIVE.OpenXR.Samples.OpenXRInput
     public class TrackerPose : MonoBehaviour
     {
         const string LOG_TAG = "VIVE.OpenXR.Samples.OpenXRInput.TrackerPose";
-        void DEBUG(string msg) { Debug.Log(LOG_TAG + " " + (IsLeft ? "Left" : "Right") + ", " + msg); }
-        void INTERVAL(string msg) { if (printIntervalLog) { DEBUG(msg); } }
+       // void DEBUG(string msg) { Debug.Log(LOG_TAG + " " + (IsLeft ? "Left" : "Right") + ", " + msg); }
+        void INTERVAL(string msg) { if (printIntervalLog) { /*DEBUG(msg);*/ } }
 
         #region Inspector
         public bool IsLeft = false;
@@ -168,9 +168,9 @@ namespace VIVE.OpenXR.Samples.OpenXRInput
             var rotation = getDeviceRotation(m_DevicePose);
 
             if (getButton(m_PrimaryButton))
-                DEBUG("Update() " + m_PrimaryButton.name + " is pressed.");
+                //DEBUG("Update() " + m_PrimaryButton.name + " is pressed.");
             if (getButton(m_Menu))
-                DEBUG("Update() " + m_Menu.name + " is pressed.");
+               // DEBUG("Update() " + m_Menu.name + " is pressed.");
 
             if (tracked)
             {
@@ -179,8 +179,8 @@ namespace VIVE.OpenXR.Samples.OpenXRInput
             }
             else
             {
-                if (printIntervalLog)
-                    DEBUG("Update() Tracker is not tracked.");
+                // if (printIntervalLog)
+                //     DEBUG("Update() Tracker is not tracked.");
             }
         }
     }

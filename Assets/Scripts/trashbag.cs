@@ -46,7 +46,7 @@ public class trashbag : MonoBehaviour
             GameObject trash = trashPicker.grabbed; //get the trash from the controller
             collectedTrash.Add(trash);
             trashPicker.emptyTrash();
-
+            FindObjectOfType<GameManager>().RemoveTrash(trash);
 
         }
     }

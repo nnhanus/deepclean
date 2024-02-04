@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6382455399558612529}
   - component: {fileID: 5319766170666392129}
   - component: {fileID: -6359649714709588366}
+  - component: {fileID: 6205324657654200577}
   m_Layer: 0
   m_Name: BeachBucket_Orange_Desktop
   m_TagString: Trash
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 15
   amplitude: 0.2
+--- !u!64 &6205324657654200577
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382455399556457593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300000, guid: 8760e0a9758e67e4f8aa57618c321380, type: 3}
