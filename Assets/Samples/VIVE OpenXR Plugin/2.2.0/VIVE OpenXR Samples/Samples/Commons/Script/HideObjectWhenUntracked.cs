@@ -17,7 +17,7 @@ namespace VIVE.OpenXR.Samples
                 return m_sb;
             }
         }
-        void DEBUG(StringBuilder msg) { Debug.Log(msg); }
+        //void DEBUG(StringBuilder msg) { Debug.Log(msg); }
 
         public bool IsLeft = false;
         private string hand {
@@ -66,7 +66,7 @@ namespace VIVE.OpenXR.Samples
                 if (printIntervalLog)
                 {
                     sb.Clear().Append(LOG_TAG).Append(hand).Append("Update() ").Append(m_IsActive.action.name).Append(", ").Append(errMsg);
-                    DEBUG(sb);
+                   // DEBUG(sb);
                 }
             }
             if (OpenXRHelper.VALIDATE(m_TrackingState, out errMsg))
@@ -79,14 +79,14 @@ namespace VIVE.OpenXR.Samples
                 if (printIntervalLog)
                 {
                     sb.Clear().Append(LOG_TAG).Append(hand).Append("Update() ").Append(m_TrackingState.action.name).Append(", ").Append(errMsg);
-                    DEBUG(sb);
+                   // DEBUG(sb);
                 }
             }
 
             if (printIntervalLog)
             {
                 sb.Clear().Append(LOG_TAG).Append(hand).Append("Update() isActive: ").Append(isActive).Append(", trackingState: ").Append(trackingState);
-                DEBUG(sb);
+               // DEBUG(sb);
             }
 
             positionTracked = ((uint)trackingState & (uint)InputTrackingState.Position) != 0;

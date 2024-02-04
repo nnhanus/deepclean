@@ -39,7 +39,7 @@ public class TrashPicker : MonoBehaviour
         
         if (other.tag == "Trash")
         {
-            Debug.Log("hit trash");
+            //Debug.Log("hit trash");
         }
     }
 
@@ -48,15 +48,15 @@ public class TrashPicker : MonoBehaviour
         if (other.tag == "Trash" && m_GripReference.action.ReadValue<float>() > float.Epsilon && !hasTrash)
         {
             hasTrash = true;
-            Debug.Log("pick trash");
+           // Debug.Log("pick trash");
             grabbed = other.gameObject;
-            Debug.Log(grabbed);
+           // Debug.Log(grabbed);
             
             initialRotation = grabbed.transform.rotation;
         }
         if (hasTrash)
         {
-            Debug.Log("has trash");
+           // Debug.Log("has trash");
             grabbed.transform.SetParent(transform);
 
             //play movement sound

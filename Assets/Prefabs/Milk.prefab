@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4338952935934698175}
   - component: {fileID: -6078639222824927650}
   - component: {fileID: -4442325452400228796}
+  - component: {fileID: -340998197278643854}
   m_Layer: 0
   m_Name: Milk
   m_TagString: Trash
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 15
   amplitude: 0.2
+--- !u!65 &-340998197278643854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597407896741647971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07333349, y: 0.23866948, z: 0.10318597}
+  m_Center: {x: 0, y: 0.11933474, z: -0.0014625229}

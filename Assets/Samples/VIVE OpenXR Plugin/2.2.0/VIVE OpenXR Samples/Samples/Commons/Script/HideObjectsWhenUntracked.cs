@@ -67,7 +67,7 @@ namespace VIVE.OpenXR.Samples
                     {
                         sb.Clear().Append(LOG_TAG).Append(m_ObjectInfos[i].DeviceIndex)
                             .Append(" Update() ").Append(m_ObjectInfos[i].IsActive.action.name).Append(", ").Append(errMsg);
-                        DEBUG(sb);
+                        //DEBUG(sb);
                     }
                 }
 
@@ -82,7 +82,7 @@ namespace VIVE.OpenXR.Samples
                     {
                         sb.Clear().Append(LOG_TAG).Append(m_ObjectInfos[i].DeviceIndex)
                             .Append(" Update() ").Append(m_ObjectInfos[i].TrackingState.action.name).Append(", ").Append(errMsg);
-                        DEBUG(sb);
+                        //DEBUG(sb);
                     }
                 }
 
@@ -90,7 +90,7 @@ namespace VIVE.OpenXR.Samples
                 {
                     sb.Clear().Append(LOG_TAG).Append(m_ObjectInfos[i].DeviceIndex)
                         .Append("Update() isActive: ").Append(isActive).Append(", trackingState: ").Append(trackingState);
-                    DEBUG(sb);
+                   // DEBUG(sb);
                 }
 
                 positionTracked = ((uint)trackingState & (uint)InputTrackingState.Position) != 0;

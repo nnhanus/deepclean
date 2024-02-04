@@ -50,7 +50,7 @@ public class move : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(xRController.gameObject.transform.rotation.eulerAngles);
             Matrix4x4 m = Matrix4x4.Rotate(rotation);
             Vector3 translateVect = new Vector3(0, 0, 0);
-            Debug.Log("x = " + value.x + ", y = " + value.y);
+           // Debug.Log("x = " + value.x + ", y = " + value.y);
 
             if (value.x < -0.25)
             {

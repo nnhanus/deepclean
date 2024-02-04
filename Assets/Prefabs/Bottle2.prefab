@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5126113040579296360}
   - component: {fileID: 4226469971716504214}
   - component: {fileID: -7186788596978802057}
+  - component: {fileID: -7076907328910397256}
   m_Layer: 0
   m_Name: Bottle2
   m_TagString: Trash
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 15
   amplitude: 0.2
+--- !u!64 &-7076907328910397256
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126113040577290920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300000, guid: 600f6467914f8fb48926d853668a1ce5, type: 3}
