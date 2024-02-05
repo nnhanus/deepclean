@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 // should use game manager to track number of garbage in the ocean and limit it
     public GameObject[] trashPrefabs;
 
-// public GameObject [] fishPrefabs; 
+    public GameObject [] fishPrefabs; 
 
     public bool isVisible = false;
 
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
         //  audioSource = GetComponent<AudioSource>();
         //  audioSource.Play();
          trashCount =0;
-         StartCoroutine(Spawn());
+         StartCoroutine(SpawnTrash());
          //manager = FindObjectOfType<GameManager>();
     }
     
@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
         //audioSource.Stop();
     }
 
-    private IEnumerator Spawn()
+    private IEnumerator SpawnTrash()
     {
         
         while (true)
@@ -70,12 +70,12 @@ public class Spawner : MonoBehaviour
             //if under water and havent spawned too many trash
             if(spawnPoint.y<0 && trashCount< spawnLimit&& manager.NumTrashInWater()<trashLimit ){
                 GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-                
+                var dir=direction[Random.Range(0,2)];
                 Vector3 position = new Vector3();
                 // min and max for scene bounds
                 position.x = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.x+posVar, spawnPoint.x-posVar), spawnBoundsSize.x),-spawnBoundsSize.x);
                 position.y = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.y+posVar, spawnPoint.y-posVar),-0.5f),-2*spawnBoundsSize.y+0.5f);
-                position.z = Mathf.Max(Mathf.Min(direction[Random.Range(0,2)]*Random.Range(spawnPoint.z+posVar, spawnPoint.z+0.1f),spawnBoundsSize.z),-spawnBoundsSize.z);
+                position.z = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.z+(dir*posVar), spawnPoint.z+(dir*0.1f)),spawnBoundsSize.z),-spawnBoundsSize.z);
                 Debug.Log(position.x+","+position.y+","+position.z);
                 //spawns in any point around the character that is more than 1 away and less than the variance+2 (ie a spawning box)
 
