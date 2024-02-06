@@ -5,10 +5,10 @@ using UnityEngine;
 public class TriggerArea : MonoBehaviour
 {
     public GameObject player;
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -20,6 +20,8 @@ public class TriggerArea : MonoBehaviour
     public void OnTriggerEnter(Collider other){
         if (other.gameObject == player){
             Debug.Log("Trigger area");
+            audio.Play();
+
         }
     }
 
