@@ -7,7 +7,8 @@ public class DumpsterArea : MonoBehaviour
     public GameObject player;
     public AudioSource doBetter;
     public AudioSource goodJob;
-    public Animator animator;
+    public AudioSource trashSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,10 @@ public class DumpsterArea : MonoBehaviour
 
     public void OnTriggerEnter(Collider other){
         if (other.gameObject == player){
-            // Debug.Log("Trigger area");
-            animator.SetTrigger("Open");
+            
+            trashSounds.Play();
+            this.transform.GetChild(0).Rotate(0f,-90f,0f);
+            this.transform.GetChild(1).Rotate(0f,-90f,0f);
            
         }
         
@@ -31,8 +34,7 @@ public class DumpsterArea : MonoBehaviour
 
     public void OnTriggerExit(Collider other){
         if (other.gameObject == player){
-            // Debug.Log("Trigger exit");
-            // animator.SetTrigger("Close");
+            
              float random = Random.Range(0f,1f);
             Debug.Log("random: " + random);
             if (random < 0.33f){
@@ -41,6 +43,8 @@ public class DumpsterArea : MonoBehaviour
                 goodJob.Play();
             }
             //we should change it to quantity of trash in bag determines between the 2 sounds and then 50% chance of saying something
+            this.transform.GetChild(0).Rotate(0f,90f,0f);
+            this.transform.GetChild(1).Rotate(0f,90f,0f);
         }
     }
 }
