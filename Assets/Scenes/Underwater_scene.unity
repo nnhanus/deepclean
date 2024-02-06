@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5949,6 +5949,8 @@ GameObject:
   m_Component:
   - component: {fileID: 279305976}
   - component: {fileID: 279305977}
+  - component: {fileID: 279305979}
+  - component: {fileID: 279305978}
   m_Layer: 0
   m_Name: Grip
   m_TagString: Untagged
@@ -6061,6 +6063,35 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   m_HasMigratedActions: 1
+--- !u!114 &279305978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279305975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc83f1ea8ddf8849b56597d33f9b5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GripReference: {fileID: -5194266436686895582, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
+  handSphere: {fileID: 279305979}
+  grabbed: {fileID: 0}
+  hasTrash: 0
+--- !u!135 &279305979
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279305975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &282484140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16825,7 +16856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_Name
-      value: WaterBlock_50m (1)
+      value: WaterBlock_50m face down
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_IsActive
@@ -21056,7 +21087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_Name
-      value: WaterBlock_50m
+      value: WaterBlock_50m face up
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_IsActive
@@ -28259,6 +28290,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1569958810}
   - component: {fileID: 1569958811}
+  - component: {fileID: 1569958813}
+  - component: {fileID: 1569958812}
   m_Layer: 0
   m_Name: Grip
   m_TagString: Untagged
@@ -28371,6 +28404,35 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   m_HasMigratedActions: 1
+--- !u!135 &1569958812
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569958809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1569958813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569958809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc83f1ea8ddf8849b56597d33f9b5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GripReference: {fileID: -1289947363739713011, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
+  handSphere: {fileID: 1569958812}
+  grabbed: {fileID: 0}
+  hasTrash: 0
 --- !u!1001 &1573973205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36359,7 +36421,7 @@ GameObject:
   - component: {fileID: 1996170007}
   - component: {fileID: 1996170012}
   m_Layer: 0
-  m_Name: PlayerRig (1)
+  m_Name: PlayerRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
