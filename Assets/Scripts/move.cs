@@ -26,7 +26,7 @@ public class move : MonoBehaviour
     bool triggerValue, up, down;
     Vector2 fingerPress;
     //Modify this value for the move speed control
-    public const float moveSpeed = 0.1f;
+    public const float moveSpeed = 0.01f;
     Vector3 plusX = new Vector3(moveSpeed, 0f, 0f);
     Vector3 minusX = new Vector3(-moveSpeed, 0f, 0f);
     Vector3 plusZ = new Vector3(0f, 0f, moveSpeed);

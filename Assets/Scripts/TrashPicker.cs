@@ -32,6 +32,10 @@ public class TrashPicker : MonoBehaviour
           //  grabbed.transform.SetPositionAndRotation(transform.position, initialRotation * transform.rotation);
            // grabbed.transform.localScale = transform.localScale;
         //}
+        if( hasTrash && m_GripReference.action.ReadValue<float>() < float.Epsilon)
+        {
+            emptyTrash();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +54,7 @@ public class TrashPicker : MonoBehaviour
             hasTrash = true;
            // Debug.Log("pick trash");
             grabbed = other.gameObject;
+            grabbed.GetComponent<Floater>().enabled = false;
            // Debug.Log(grabbed);
             
             initialRotation = grabbed.transform.rotation;
@@ -70,6 +75,7 @@ public class TrashPicker : MonoBehaviour
     public void emptyTrash()
     {
         grabbed.transform.SetParent(null);
+        grabbed.GetComponent<Floater>().enabled = true;
         grabbed = null;
         hasTrash = false;
     }
