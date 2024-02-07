@@ -16,9 +16,14 @@ public class TrashPicker : MonoBehaviour
     public bool hasTrash;
     private Quaternion initialRotation;
     private AudioSource audioSource;
+
+    public GameObject trashBag;
+    public List<GameObject> collectedTrash; //change to whatever the type for trash is
+
     // Start is called before the first frame update
     void Start()
     {
+        collectedTrash = new List<GameObject>();
         hasTrash = false;
         audioSource = GetComponent<AudioSource>();
     }
@@ -70,9 +75,21 @@ public class TrashPicker : MonoBehaviour
             //grabbed.transform.position = transform.position;
             //grabbed.transform.localScale = transform.localScale;
         }
+        if (other.gameObject == trashBag
+          &&  gripReference != null
+          && gripReference.action != null
+          && gripReference.action.ReadValue<float>() > float.Epsilon
+          && collectedTrash.Count < 10
+          && hasTrash) //check if the collisison is with the controller so it doesn't happen when random trash hits it or something
+        {
+            GameObject trash = grabbed;
+            collectedTrash.Add(trash);
+            trashToBag();
+            FindObjectOfType<GameManager>().RemoveTrash(trash);
+        }
     }
 
-    public void emptyTrash()
+    public void trashToBag()
     {
         grabbed.transform.SetParent(null);
         grabbed.GetComponent<Floater>().enabled = true;
