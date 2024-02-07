@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Underwater_scene.unity
+    guid: b1e17798a30080c4c833722a7ce3c7f7
+  - enabled: 1
+    path: Assets/Scenes/npc_test_scene.unity
+    guid: 328d0c47e5ea4ee42964318af854a882
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 602a272af5a7b51419be6b90a0205a71, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: bf194476b70604542b1cc0948ca71f50, type: 2}

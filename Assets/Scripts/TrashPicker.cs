@@ -39,7 +39,7 @@ public class TrashPicker : MonoBehaviour
         //}
         if( hasTrash && m_GripReference.action.ReadValue<float>() < float.Epsilon)
         {
-            emptyTrash();
+            releaseTrash();
         }
     }
 
@@ -90,6 +90,14 @@ public class TrashPicker : MonoBehaviour
     }
 
     public void trashToBag()
+    {
+        grabbed.transform.SetParent(null);
+        //grabbed.GetComponent<Floater>().enabled = true;
+        grabbed = null;
+        hasTrash = false;
+    }
+
+    public void releaseTrash()
     {
         grabbed.transform.SetParent(null);
         grabbed.GetComponent<Floater>().enabled = true;
