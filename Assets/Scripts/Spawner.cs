@@ -18,12 +18,11 @@ public class Spawner : MonoBehaviour
     public GameObject player;
     public int spawnLimit = 4;
     public int trashLimit = 20;
-    private Vector3 spawnPoint;
-    //private float lastRotate=0f;
+    private List<Vector3> spawnPoints;
     public float posVar = 1;
-    //private int[] randDirection;
-    private int[] direction = {-1,1};
-    private int trashCount =0;
+
+    private int[] trashCounts;
+    private bool[] inArea={false,false,false,false};
     // public float maxLifetime = 5f;
     private AudioSource audioSource;
 
@@ -43,7 +42,13 @@ public class Spawner : MonoBehaviour
          spawnBoundsSize = 0.5f*collider.bounds.size;
         //  audioSource = GetComponent<AudioSource>();
         //  audioSource.Play();
-         trashCount =0;
+        spawnPoints=new List<Vector3>();
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -spawnBoundsSize.y/2, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -spawnBoundsSize.y/2, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -spawnBoundsSize.y/2, -spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -spawnBoundsSize.y/2, -spawnBoundsSize.z/2));
+        // trashCount =0;
+         trashCounts= new int[] {0,0,0,0};
          StartCoroutine(SpawnTrash());
          //manager = FindObjectOfType<GameManager>();
     }
@@ -60,35 +65,34 @@ public class Spawner : MonoBehaviour
         
         while (true)
         {
-            //if player moves more than .25 . can also add when looks arounds more than 5 degrees, spawn more trash
-            if (Vector3.Distance (spawnPoint, player.transform.position)>0.25f /*|| Mathf.Abs(player.transform.rotation.eulerAngles.z-lastRotate)>5*/){
-                trashCount=0;
-            }
-            //get player rig location and set it to spawnPoint
-            //lastRotate=player.transform.rotation.eulerAngles.z;
-            spawnPoint = player.transform.position;
-            //if under water and havent spawned too many trash
-            if(spawnPoint.y<0 && trashCount< spawnLimit&& manager.NumTrashInWater()<trashLimit ){
-                GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-                var dir=direction[Random.Range(0,2)];
-                Vector3 position = new Vector3();
-                // min and max for scene bounds
-                position.x = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.x+posVar, spawnPoint.x-posVar), spawnBoundsSize.x),-spawnBoundsSize.x);
-                position.y = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.y+posVar, spawnPoint.y-posVar),-0.5f),-2*spawnBoundsSize.y+0.5f);
-                position.z = Mathf.Max(Mathf.Min(Random.Range(spawnPoint.z+(dir*posVar), spawnPoint.z+(dir*0.1f)),spawnBoundsSize.z),-spawnBoundsSize.z);
-                Debug.Log(position.x+","+position.y+","+position.z);
-                //spawns in any point around the character that is more than 1 away and less than the variance+2 (ie a spawning box)
+            for(int i=0; i<4; i++){
+                var distance = Vector3.Distance(spawnPoints[i], player.transform.position);
+                var line = (spawnPoints[i] - player.transform.position).normalized;
+                //if under water and havent spawned too many trash
+                    //if player is further than 5 away or not facing spawn point
+                if (trashCounts[i]< spawnLimit&& manager.NumTrashInWater()<trashLimit && (distance>5.0f || Vector3.Dot(line, player.transform.forward)<0.5f)){
+                    if (inArea[i]){
+                        trashCounts[i]=0;
+                        inArea[i]=false;
+                    }
+                    GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
+                    Vector3 position = new Vector3();
+                    // min and max for scene bounds
+                    position.x = Random.Range(spawnPoints[i].x+posVar, spawnPoints[i].x-posVar);
+                    position.y = Random.Range(spawnPoints[i].y+posVar, spawnPoints[i].y-posVar);
+                    position.z = Random.Range(spawnPoints[i].z+posVar, spawnPoints[i].z-posVar);
+                    Debug.Log(position.x+","+position.y+","+position.z);
+                    //spawns in any point around the character that is more than 1 away and less than the variance+2 (ie a spawning box)
 
-                GameObject trash = Instantiate(prefab, position, Quaternion.identity);
-                trashCount +=1;
-                manager.AddTrashToWater(trash);
-                // trash.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+                    GameObject trash = Instantiate(prefab, position, Quaternion.identity);
+                    trashCounts[i] +=1;
+                    manager.AddTrashToWater(trash);
+                //  Destroy(trash, maxLifetime);
 
-            //  Destroy(trash, maxLifetime);
-
-                //float force = Random.Range(minForce, maxForce);
-                //trash.GetComponent<Rigidbody>().AddForce(trash.transform.up * force, ForceMode.Impulse);
-
+                }
+                else if(distance<1.5f){
+                    inArea[i]=true;
+                }
             }
             
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
