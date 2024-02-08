@@ -81,7 +81,7 @@ public class Spawner : MonoBehaviour
 
                 GameObject trash = Instantiate(prefab, position, Quaternion.identity);
                 trashCount +=1;
-                manager.AddTrash(trash);
+                manager.AddTrashToWater(trash);
                 // trash.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
             //  Destroy(trash, maxLifetime);
