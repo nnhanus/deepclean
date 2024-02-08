@@ -24993,20 +24993,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3198513, y: 0.9330368, z: 2.2281017}
   m_Center: {x: 2.5984845, y: 0.093957365, z: 0}
---- !u!114 &1394505213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394505210}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ea4f43469393a4b828f081e6854ba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1996170006}
-  scene_to_load: 
 --- !u!1 &1397220358
 GameObject:
   m_ObjectHideFlags: 0
@@ -31236,7 +31222,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709779156}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2.1648726}
@@ -31315,11 +31301,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709779156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ea4f43469393a4b828f081e6854ba9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ccf31af245be7943942814d3c9c93a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1569958809}
-  scene_to_load: npc_test_scene
+  sceneToLoad: npc_test_scene
 --- !u!1 &1711890603
 GameObject:
   m_ObjectHideFlags: 0
