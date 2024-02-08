@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     
     //hoping we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
-
+    List<GameObject> trashInBag;
     private AudioSource splash;
     // Start is called before the first frame update
     private void Awake(){
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         sceneNum=0;
         splash= GetComponent<AudioSource>();
         trashInWater= new List<GameObject>();
+        trashInBag = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -41,14 +42,16 @@ public class GameManager : MonoBehaviour
 //use FindObjectOfType<GameManager>().AddToBin(bagCount); in the script that handles dumpin garbage into the bin
     public void AddToBin(int bagCount){
         totalScore+=bagCount;
+        trashInBag.Clear();
     }
 
-    //use FindObjectOfType<GameManager>().AddTrash(trash); in the script that handles spawning trash
-    public void AddTrash(GameObject trash){
+    //use FindObjectOfType<GameManager>().AddTrashToWater(trash); in the script that handles spawning trash
+    public void AddTrashToWater(GameObject trash){
         trashInWater.Add(trash);
     }
-    public void RemoveTrash(GameObject trash){
+    public void RemoveTrashFromWater(GameObject trash){
         trashInWater.Remove(trash);
+        Destroy(trash);
     }
 
     public int NumTrashInWater(){
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
         if(sceneNum==1){
             splash.Play();
         }else{
+            trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
         }
         SceneManager.LoadScene(sceneNum);
     }

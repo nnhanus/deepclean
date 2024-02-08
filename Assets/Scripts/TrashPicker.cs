@@ -85,16 +85,17 @@ public class TrashPicker : MonoBehaviour
             GameObject trash = grabbed;
             collectedTrash.Add(trash);
             trashToBag();
-            FindObjectOfType<GameManager>().RemoveTrash(trash);
         }
     }
 
     public void trashToBag()
     {
         grabbed.transform.SetParent(null);
+        FindObjectOfType<GameManager>().RemoveTrashFromWater(grabbed);
         //grabbed.GetComponent<Floater>().enabled = true;
         grabbed = null;
         hasTrash = false;
+        
     }
 
     public void releaseTrash()

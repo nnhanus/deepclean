@@ -13,6 +13,7 @@ public class Floater : MonoBehaviour
     Vector3 posOffset = new Vector3();
     Vector3 size = new Vector3();
     Vector3 startPos = new Vector3();
+    
 
     // Use this for initialization
     void Start()
