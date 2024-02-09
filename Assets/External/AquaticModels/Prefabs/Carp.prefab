@@ -480,11 +480,12 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3865450950463991884, guid: 4409c5921688a14479dee10649cc0d16, type: 3}
-  - {fileID: 6820926137268923913, guid: 4409c5921688a14479dee10649cc0d16, type: 3}
+  - {fileID: 2100000, guid: 652ded1ac3763e34694c3908d518436d, type: 2}
+  - {fileID: 2100000, guid: 1b5f6d8b34342b249977359c0c626f83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -632,6 +633,7 @@ GameObject:
   - component: {fileID: 6368682711331380942}
   - component: {fileID: 2096619004919395798}
   - component: {fileID: 8970669560197062011}
+  - component: {fileID: -7957636337282967110}
   m_Layer: 0
   m_Name: Carp
   m_TagString: Untagged
@@ -687,6 +689,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.79, z: 2.11}
   m_Center: {x: 0, y: -0.09, z: 0}
+--- !u!114 &-7957636337282967110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942453042299989213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0.1
+  ampSway: 1
+  movementSpeed: 1
+  frequency: 1
 --- !u!1 &8385626602132068842
 GameObject:
   m_ObjectHideFlags: 0

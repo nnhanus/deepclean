@@ -16,8 +16,8 @@ public class Spawner : MonoBehaviour
     public float maxSpawnDelay = 2f;
 
     public GameObject player;
-    public int spawnLimit = 4;
-    public int trashLimit = 20;
+    public int trashSpawnLimit = 4;
+    public int trashLimit = 10;
     private List<Vector3> spawnPoints;
     public float posVar = 1;
 
@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour
      private Vector3 spawnBoundsSize;
      private Collider collider;
      public GameManager manager;
+     int numDive;
 
     //private void OnEnable()
    // {
@@ -38,8 +39,10 @@ public class Spawner : MonoBehaviour
     //could change to OnEnable
     private void Start()
     {
-         collider = GetComponent<Collider>();
-         spawnBoundsSize = 0.5f*collider.bounds.size;
+        manager = FindObjectOfType<GameManager>();
+        numDive = manager.GetDiveNum();
+        collider = GetComponent<Collider>();
+        spawnBoundsSize = 0.5f*collider.bounds.size;
         //  audioSource = GetComponent<AudioSource>();
         //  audioSource.Play();
         spawnPoints=new List<Vector3>();
@@ -50,7 +53,8 @@ public class Spawner : MonoBehaviour
         // trashCount =0;
          trashCounts= new int[] {0,0,0,0};
          StartCoroutine(SpawnTrash());
-         //manager = FindObjectOfType<GameManager>();
+         StartCoroutine(SpawnFish());
+         
     }
     
 
@@ -62,7 +66,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnTrash()
     {
-        
+        trashLimit=trashLimit*numDive;   
         while (true)
         {
             for(int i=0; i<4; i++){
@@ -70,7 +74,7 @@ public class Spawner : MonoBehaviour
                 var line = (spawnPoints[i] - player.transform.position).normalized;
                 //if under water and havent spawned too many trash
                     //if player is further than 5 away or not facing spawn point
-                if (trashCounts[i]< spawnLimit&& manager.NumTrashInWater()<trashLimit && (distance>5.0f || Vector3.Dot(line, player.transform.forward)<0.5f)){
+                if (trashCounts[i]< trashSpawnLimit&& manager.NumTrashInWater()<trashLimit && (distance>5.0f || Vector3.Dot(line, player.transform.forward)<0.5f)){
                     if (inArea[i]){
                         trashCounts[i]=0;
                         inArea[i]=false;
@@ -81,7 +85,7 @@ public class Spawner : MonoBehaviour
                     position.x = Random.Range(spawnPoints[i].x+posVar, spawnPoints[i].x-posVar);
                     position.y = Random.Range(spawnPoints[i].y+posVar, spawnPoints[i].y-posVar);
                     position.z = Random.Range(spawnPoints[i].z+posVar, spawnPoints[i].z-posVar);
-                    Debug.Log(position.x+","+position.y+","+position.z);
+                    //Debug.Log(position.x+","+position.y+","+position.z);
                     //spawns in any point around the character that is more than 1 away and less than the variance+2 (ie a spawning box)
 
                     GameObject trash = Instantiate(prefab, position, Quaternion.identity);
@@ -98,4 +102,39 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
     }
+     private IEnumerator SpawnFish()
+    {   
+        if(numDive==0){numDive=1;}
+        float fishSpawnLimit=Mathf.Ceil(30/numDive);
+        float minLifeTime= 8;
+        float maxLifeTime = (28-3*numDive);
+        float minFishDelay= numDive/3;
+        float maxFishDelay=numDive*2;
+        while (true)
+        {
+                //if under water and havent spawned too many fish
+                if (manager.NumFishInWater()< fishSpawnLimit){
+                    int fishIncl=fishPrefabs.Length-(numDive-1)*2;
+                    GameObject prefab = fishPrefabs[Random.Range(0, fishIncl)];
+                    Vector3 offset = Random.onUnitSphere * Random.Range(3, 15);
+                    Vector3 position = new Vector3();
+                    // min and max for scene bounds
+                    position.x = player.transform.position.x+offset.x;
+                    if(Mathf.Abs(position.x)>spawnBoundsSize.x){position.x=player.transform.position.x-offset.x;}
+                    position.y = Random.Range(-12.0f,-3.0f);
+                    position.z = player.transform.position.z+offset.z;
+                    if(Mathf.Abs(position.z)>spawnBoundsSize.z){position.x=player.transform.position.z-offset.z;}
+                    //Debug.Log(position.x+","+position.y+","+position.z);
+                    //spawns in any point around the character that is more than 3 away and less than 15 
+
+                    GameObject fish = Instantiate(prefab, position, Quaternion.identity);
+                    manager.ChangeNumFishInWater(1);
+                    Destroy(fish, Random.Range(minLifeTime, maxLifeTime));
+
+                }
+            
+            yield return new WaitForSeconds(Random.Range(minFishDelay, maxFishDelay));
+            }
+        }
+    
 }

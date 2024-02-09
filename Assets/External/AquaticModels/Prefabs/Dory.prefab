@@ -353,12 +353,13 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3461052464977218717, guid: b929a77fc4a15fc46b3c69534efaa0d2, type: 3}
-  - {fileID: 1550354032950145282, guid: b929a77fc4a15fc46b3c69534efaa0d2, type: 3}
-  - {fileID: -1711136028702647730, guid: b929a77fc4a15fc46b3c69534efaa0d2, type: 3}
+  - {fileID: 2100000, guid: ee460f4c099c3684c9eb33781c5aaf2d, type: 2}
+  - {fileID: 2100000, guid: c85f4998c0378d44ca4e00688586e52e, type: 2}
+  - {fileID: 2100000, guid: 9c857f0da35ef2143a7d916c21ec7443, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,6 +415,7 @@ GameObject:
   - component: {fileID: 8311735697361266655}
   - component: {fileID: 3901106128255143163}
   - component: {fileID: 8691056115466711935}
+  - component: {fileID: -3795615684226308871}
   m_Layer: 0
   m_Name: Dory
   m_TagString: Untagged
@@ -469,6 +471,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.5185369, z: 1.094714}
   m_Center: {x: 0, y: -0.06708926, z: 0.047357023}
+--- !u!114 &-3795615684226308871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972658214013244876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0.1
+  ampSway: 1
+  movementSpeed: 1
+  frequency: 1
 --- !u!1 &5097785207647972814
 GameObject:
   m_ObjectHideFlags: 0

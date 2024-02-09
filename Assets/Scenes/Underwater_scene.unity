@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38496056, g: 0.60092807, b: 0.6361924, a: 1}
+  m_IndirectSpecularColor: {r: 0.38496053, g: 0.60092777, b: 0.6361929, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -37848,11 +37848,15 @@ MonoBehaviour:
   - {fileID: 4972658214013244876, guid: 3901484d89c26ab40a5f3d2aeda149bf, type: 3}
   - {fileID: 4972658214013244876, guid: 3901484d89c26ab40a5f3d2aeda149bf, type: 3}
   - {fileID: 2022036273397845949, guid: 7c6303ea4f279a0448f7e38470d26ca2, type: 3}
+  - {fileID: 2112102839012563261, guid: d5bf1da685cd51a4eb36a1f7ea9b1bb6, type: 3}
+  - {fileID: 7223436510855899414, guid: 73d25b60be17e494ab4e66e7e30d50f4, type: 3}
+  - {fileID: 2908643636656555739, guid: 71cf87aafb595474699f4c1306e52b7d, type: 3}
+  - {fileID: 1909962787590049678, guid: 9ec55b83538b2ca42af9dccd1db764b8, type: 3}
   isVisible: 0
   minSpawnDelay: 1
   maxSpawnDelay: 5
   player: {fileID: 1996170006}
-  spawnLimit: 4
+  trashSpawnLimit: 4
   trashLimit: 20
   posVar: 1
   manager: {fileID: 875906982}

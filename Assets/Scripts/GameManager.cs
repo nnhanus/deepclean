@@ -7,14 +7,16 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager manager;
-    //sceneNum 0 = boat scene 1=underwater scene
+    //sceneNum 0 = boat scene 1=underwater scene 2=load scene 3=end scene
     int sceneNum;
     int totalScore=0;
+    int numDives = 0;
     bool gameStart =true;
     
     //hoping we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
     List<GameObject> trashInBag;
+    int numFish;
     private AudioSource splash;
     // Start is called before the first frame update
     private void Awake(){
@@ -58,13 +60,31 @@ public class GameManager : MonoBehaviour
         Debug.Log(trashInWater.Count);
         return trashInWater.Count;
     }
-
+    public int NumFishInWater(){
+        return numFish;
+    }
+    public void ChangeNumFishInWater(int diff){
+        numFish+=diff;
+    }
+    public int GetDiveNum(){
+            Debug.Log(trashInWater.Count);
+            return numDives;
+        }
 //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
     public void ChangeScene(){
-        if(gameStart){gameStart=false;}
-        sceneNum= sceneNum*(-1)+1;
+        if(gameStart){
+            gameStart=false;
+            sceneNum = 0;
+            }
+        else if (numDives>=3){
+            sceneNum=3;
+        }
+        else{
+            sceneNum= sceneNum*(-1)+1;
+        }
         if(sceneNum==1){
             splash.Play();
+            numDives+=1;
         }else{
             trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
         }

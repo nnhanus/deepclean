@@ -77,12 +77,13 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2387092485650076274, guid: 077f083e1e5fed449ba5e4ec775aaa99, type: 3}
-  - {fileID: 5700286291308076780, guid: 077f083e1e5fed449ba5e4ec775aaa99, type: 3}
-  - {fileID: 1635738708648679582, guid: 077f083e1e5fed449ba5e4ec775aaa99, type: 3}
+  - {fileID: 2100000, guid: 21f51485cf0540742a0a41741a71d69b, type: 2}
+  - {fileID: 2100000, guid: 9a661984a113df543b713ebbfcae1d92, type: 2}
+  - {fileID: 2100000, guid: 5db5efda39540414197addaeb0a58570, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,6 +166,7 @@ GameObject:
   - component: {fileID: 3050325218217409966}
   - component: {fileID: 8011440092836665014}
   - component: {fileID: 3607651664178264107}
+  - component: {fileID: 648712110994595544}
   m_Layer: 0
   m_Name: ClownFish
   m_TagString: Untagged
@@ -220,6 +222,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.20821553, z: 0.510695}
   m_Center: {x: 0, y: 0.03558585, z: -0.02668935}
+--- !u!114 &648712110994595544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022036273397845949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0.1
+  ampSway: 1
+  movementSpeed: 1
+  frequency: 1
 --- !u!1 &3007597296844068792
 GameObject:
   m_ObjectHideFlags: 0

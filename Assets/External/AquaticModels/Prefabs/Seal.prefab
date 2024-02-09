@@ -76,6 +76,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -200,6 +201,7 @@ GameObject:
   - component: {fileID: 1341278800321006531}
   - component: {fileID: 6334199870550499527}
   - component: {fileID: 248596121370689491}
+  - component: {fileID: 464297768616385719}
   m_Layer: 0
   m_Name: Seal
   m_TagString: Untagged
@@ -255,6 +257,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.3309567, z: 1}
   m_Center: {x: 0, y: 0.066904426, z: 0}
+--- !u!114 &464297768616385719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649933173994273232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesWiggle: 15
+  movementSpeed: 1
+  frequency: 1
 --- !u!1 &3059668500047367125
 GameObject:
   m_ObjectHideFlags: 0

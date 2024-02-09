@@ -108,10 +108,11 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4542206778770884647, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+  - {fileID: 2100000, guid: b4796758dea80f44888c70c7b05a9844, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -224,6 +225,7 @@ GameObject:
   - component: {fileID: 3104365045126458158}
   - component: {fileID: 7957402325607471028}
   - component: {fileID: 1972792503263775652}
+  - component: {fileID: 6836706315089515450}
   m_Layer: 0
   m_Name: Eel
   m_TagString: Untagged
@@ -279,6 +281,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.30400753, z: 3.4285696}
   m_Center: {x: 0, y: -0.007404566, z: -1.0662011}
+--- !u!114 &6836706315089515450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112102839012563261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0.1
+  ampSway: 0.2
+  movementSpeed: 1
+  frequency: 0.2
 --- !u!1 &2953557466651394360
 GameObject:
   m_ObjectHideFlags: 0

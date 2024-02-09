@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: b929a77fc4a15fc46b3c69534efaa0d2
 ModelImporter:
-  serializedVersion: 19300
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 5200438828872257978
@@ -27,7 +27,22 @@ ModelImporter:
   - first:
       74: 7977867591611826157
     second: DoryArmature|TunaSwim
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoryBlack
+    second: {fileID: 2100000, guid: c85f4998c0378d44ca4e00688586e52e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoryBlue
+    second: {fileID: 2100000, guid: ee460f4c099c3684c9eb33781c5aaf2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoryYellow
+    second: {fileID: 2100000, guid: 9c857f0da35ef2143a7d916c21ec7443, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -96,11 +111,13 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -110,6 +127,9 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -143,6 +163,7 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

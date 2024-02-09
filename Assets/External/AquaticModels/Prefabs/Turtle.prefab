@@ -168,11 +168,12 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1191463050888790670, guid: db45c9a2f15826d4e9fe02923981b135, type: 3}
-  - {fileID: 4795106944817931901, guid: db45c9a2f15826d4e9fe02923981b135, type: 3}
+  - {fileID: 2100000, guid: 160ba1105dfeb494f97bc40cfcc5289c, type: 2}
+  - {fileID: 2100000, guid: 1f9e6cef89d220647bca1e2a8a210d9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,6 +290,7 @@ GameObject:
   - component: {fileID: 2163638922579260616}
   - component: {fileID: 6592283508705730516}
   - component: {fileID: 3966614689375161307}
+  - component: {fileID: 1284430370651370216}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Untagged
@@ -344,6 +346,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.57, y: 0.43267, z: 1.1506969}
   m_Center: {x: 0, y: 0.062051833, z: -0.022161305}
+--- !u!114 &1284430370651370216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908643636656555739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0.1
+  ampSway: 0.1
+  movementSpeed: 1
+  frequency: 0.2
 --- !u!1 &3574139532197592182
 GameObject:
   m_ObjectHideFlags: 0
