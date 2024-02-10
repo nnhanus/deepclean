@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     //sceneNum 0 = boat scene 1=underwater scene 2=load scene 3=end scene
     int sceneNum;
     int totalScore=0;
-    int numDives = 0;
+    public int numDives = 0;
     bool gameStart =true;
     
     //hoping we can use this list to load existing trash from before upon entering water
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         numFish+=diff;
     }
     public int GetDiveNum(){
-            Debug.Log(trashInWater.Count);
+           // Debug.Log(trashInWater.Count);
             return numDives;
         }
 //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water

@@ -104,7 +104,7 @@ public class Spawner : MonoBehaviour
     }
      private IEnumerator SpawnFish()
     {   
-        if(numDive==0){numDive=1;}
+       // if(numDive==0){numDive=1;}
         float fishSpawnLimit=Mathf.Ceil(30/numDive);
         float minLifeTime= 8;
         float maxLifeTime = (28-3*numDive);
