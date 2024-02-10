@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coral1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6ff0ae4589abb5045aef4633907e1d85, type: 3}
+      propertyPath: m_TagString
+      value: Coral
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff0ae4589abb5045aef4633907e1d85, type: 3}
 --- !u!4 &4641602592433947050 stripped
@@ -148,6 +152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a8c35ca4b95a03d4eb5ed75ac4507517, type: 3}
       propertyPath: m_Name
+      value: Coral
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a8c35ca4b95a03d4eb5ed75ac4507517, type: 3}
+      propertyPath: m_TagString
       value: Coral
       objectReference: {fileID: 0}
     m_RemovedComponents: []
