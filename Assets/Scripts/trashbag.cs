@@ -32,22 +32,26 @@ public class trashbag : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void addTrashToBag(GameObject trash){
+        collectedTrash.Add(trash);
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision enter");
-        if (gripReference != null
-          && gripReference.action != null
-          && gripReference.action.ReadValue<float>() > float.Epsilon
-          && collectedTrash.Count < 10
-          && collision.gameObject == xRController
-          && trashPicker.hasTrash) //check if the collisison is with the controller so it doesn't happen when random trash hits it or something
-        {
-            Debug.Log("we're in");
-            GameObject trash = trashPicker.grabbed; //get the trash from the controller
-            collectedTrash.Add(trash);
-            trashPicker.trashToBag();
+        Debug.Log("OnTriggerEnter bag");
+        // if (gripReference != null
+        //   && gripReference.action != null
+        //   && gripReference.action.ReadValue<float>() > float.Epsilon
+        //   && collectedTrash.Count < 10
+        //   && collision.gameObject == xRController
+        //   && trashPicker.hasTrash) //check if the collisison is with the controller so it doesn't happen when random trash hits it or something
+        // {
+        //     Debug.Log("we're in");
+        //     GameObject trash = trashPicker.grabbed; //get the trash from the controller
+        //     collectedTrash.Add(trash);
+        //     trashPicker.trashToBag();
 
 
-        }
+        // }
     }
 }

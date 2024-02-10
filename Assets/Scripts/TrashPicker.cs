@@ -18,6 +18,7 @@ public class TrashPicker : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject trashBag;
+    private trashbag trashBag_Script;
     public List<GameObject> collectedTrash; //change to whatever the type for trash is
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class TrashPicker : MonoBehaviour
         collectedTrash = new List<GameObject>();
         hasTrash = false;
         audioSource = GetComponent<AudioSource>();
+        trashBag_Script = trashBag.GetComponent<trashbag>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,11 @@ public class TrashPicker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
+        if (other.transform == trashBag.transform){
+            Debug.Log("OnTriggerEnter picker");
+            trashToBag();
+        }
         
         if (other.tag == "Trash")
         {
@@ -90,6 +97,7 @@ public class TrashPicker : MonoBehaviour
 
     public void trashToBag()
     {
+        trashBag_Script.addTrashToBag(grabbed);
         grabbed.transform.SetParent(null);
         FindObjectOfType<GameManager>().RemoveTrashFromWater(grabbed);
         //grabbed.GetComponent<Floater>().enabled = true;
