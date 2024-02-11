@@ -8,10 +8,14 @@ public class DumpsterArea : MonoBehaviour
     public AudioSource doBetter;
     public AudioSource goodJob;
     public AudioSource trashSounds;
+    public AudioSource openTrash;
+    // public GameObject trashBag;
+    private trashbag trashBag_Script;
 
     // Start is called before the first frame update
     void Start()
     {
+        // trashBag_Script = trashBag.GetComponent<trashbag>();
         
     }
 
@@ -22,14 +26,22 @@ public class DumpsterArea : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other){
+        Debug.Log("Trigger Enter");
+        Debug.Log(other.gameObject);
         if (other.gameObject == player){
-            
-            trashSounds.Play();
+            openTrash.Play();
             this.transform.GetChild(0).Rotate(0f,-90f,0f);
             this.transform.GetChild(1).Rotate(0f,-90f,0f);
-           
         }
         
+    }
+    public void OnTriggerStay(Collider other){
+        if (other.gameObject == player){
+            if (other.transform.up.y < 0f){
+                trashSounds.Play();
+                // trashBag_Script.emptyTrash();
+            }
+        }
     }
 
     public void OnTriggerExit(Collider other){

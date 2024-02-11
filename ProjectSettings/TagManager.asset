@@ -8,6 +8,7 @@ TagManager:
   - Spawner
   - TrashBag
   - Coral
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

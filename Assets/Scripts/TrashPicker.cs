@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TrashPicker : MonoBehaviour
 {
@@ -47,15 +48,19 @@ public class TrashPicker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.transform == trashBag.transform){
-            Debug.Log("OnTriggerEnter picker");
+        Debug.Log("OnTriggerEnter picker");
+        Debug.Log(other);
+
+        if (other.tag == "TrashBag"){
             trashToBag();
         }
         
         if (other.tag == "Trash")
         {
             //Debug.Log("hit trash");
+        }
+        if(other.tag == "SceneLoader"){
+            SceneManager.LoadScene("npc_test_scene", LoadSceneMode.Single);
         }
     }
 
