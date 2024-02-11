@@ -7,11 +7,6 @@ using UnityEngine.InputSystem;
 
 public class trashbag : MonoBehaviour
 {
-
-    [SerializeField]
-    private InputActionReference m_GripReference;
-    public InputActionReference gripReference { get => m_GripReference; set => m_GripReference = value; }
-
     // and that as your controller
     public GameObject xRController;
 
@@ -26,22 +21,12 @@ public class trashbag : MonoBehaviour
         trashPicker = xRController.GetComponent<TrashPicker>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void addTrashToBag(GameObject trash){
         collectedTrash.Add(trash);
     }
 
     public void emptyTrash(){
+        FindObjectOfType<GameManager>().AddToBin(collectedTrash.Count);
         collectedTrash.Clear();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("OnTriggerEnter bag");
     }
 }

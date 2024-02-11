@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
     }
     public void RemoveTrashFromWater(GameObject trash){
         trashInWater.Remove(trash);
-        Destroy(trash);
+        trash.GetComponent<Renderer>().enabled = false;
+        // Destroy(trash);
     }
 
     public int NumTrashInWater(){

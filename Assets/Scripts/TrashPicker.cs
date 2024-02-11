@@ -26,7 +26,7 @@ public class TrashPicker : MonoBehaviour
     void Start()
     {
         collectedTrash = new List<GameObject>();
-        hasTrash = false;
+        // hasTrash = false;
         audioSource = GetComponent<AudioSource>();
         trashBag_Script = trashBag.GetComponent<trashbag>();
     }
