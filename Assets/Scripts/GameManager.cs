@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class GameManager : MonoBehaviour
     List<GameObject> trashInWater;
     List<GameObject> trashInBag;
     int numFish;
-    private AudioSource splash;
+    private AudioSource audio;
+    private AudioClip clip;
+    public AudioClip[] audioClips;
+    List<string[]> dialogueSources = new List<string[]>();
     // Start is called before the first frame update
     private void Awake(){
         if (manager == null){
@@ -31,14 +35,29 @@ public class GameManager : MonoBehaviour
     {
         //game manager is active once out of loading screen
         //sceneNum=0;
-        splash= GetComponent<AudioSource>();
+        audio= GetComponent<AudioSource>();
         trashInWater= new List<GameObject>();
         trashInBag = new List<GameObject>();
+  
+        dialogueSources.Add(new string[]{""});
+        dialogueSources.Add(new string[]{"Plastics are a big catalyst for climate change. They are made from fossil fuels, take a long time to decompose, and emit greenhouse gasses as they do.","They also interfere with the oceans capacity to absorb carbon dioxide from the air. More CO2 in the atmosphere means more CO2 in the waters and a higher water acidity.", "These conditions are rapidly killing our coral reefs and threatening the aquatic biodiversity. By 2050 scientists believe that the oceans will be too hostile for coral to survive. It happens very quickly.", "I started this ocean clean up mission in 2019 and this is what it looked like then."});
+        dialogueSources.Add(new string[]{"You'll see how much it's changed when you jump in. As more trash stays in the ocean, the more the coral reefs and its aquatic inhabitants die off."});
+        dialogueSources.Add(new string[]{"Hey there!"});
+        dialogueSources.Add(new string[]{"Thanks again for helping out with our ocean cleanup.", "There's 5.25 trillion pieces of garbage out here, so what we are doing today will barely make a dent- but every piece counts!"});
+        dialogueSources.Add(new string[]{"Your bag can only hold 8 pieces of trash, so when it's full come back up here and dump it in the bin."});
+        dialogueSources.Add(new string[]{"Your bag is looking full!"});
+        dialogueSources.Add(new string[]{"Woah, nice job!"});
+        dialogueSources.Add(new string[]{"I appreciate your effort, but you can do better."});
+        dialogueSources.Add(new string[]{"We've only got time for this last dive, so make it count!"});
+        dialogueSources.Add(new string[]{"Thanks again for helping out with the clean up! We'd love to have you back out here again sometime."});
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //create an array of audio clips and use the index as the parameter for triggerAudio
+
         
     }
 
@@ -88,11 +107,42 @@ public class GameManager : MonoBehaviour
             sceneNum= sceneNum*(-1)+1;
         }
         if(sceneNum==1){
-            splash.Play();
+            triggerAudio(11);
             numDives+=1;
+            if(numDives==3){
+                triggerAudio(9);
+            }
         }else{
             trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
         }
         SceneManager.LoadScene(sceneNum);
+    }
+
+//use FindObjectOfType<GameManager>().triggerAudio(clip #);
+    public void triggerAudio(int clipIndex){
+        //0 index is radio sound 1=Intro 2= Intro cont'd 3= Hey there 4=context 5=bag instruct 6= bag full 7=nice job 8= do better 9=last dive 10=outro 11=splash
+        clip = audioClips[clipIndex];
+        if(clipIndex==11){
+            audio.clip=clip;
+        }
+        else{
+            if(sceneNum==1){
+                //below water
+                audio.clip = audioClips[0];
+                audio.Play();
+            }
+            audio.clip=clip;
+            StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
+        }
+       audio.Play();
+    }
+    private IEnumerator triggerDialogue(int clipIndex, float audioTime){
+        TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
+        string[] dialogue = dialogueSources[clipIndex];
+        foreach(string phrase in dialogue){
+            textMeshPro.text=phrase;
+            new WaitForSeconds(audioTime/dialogue.Length);
+        }
+        yield return null;
     }
 }
