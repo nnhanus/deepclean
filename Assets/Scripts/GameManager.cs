@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int numDives = 0;
     bool gameStart =true;
     
-    //hoping we can use this list to load existing trash from before upon entering water
+    //we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
     List<GameObject> trashInBag;
     int numFish;
@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        sceneNum=0;
+        //game manager is active once out of loading screen
+        //sceneNum=0;
         splash= GetComponent<AudioSource>();
         trashInWater= new List<GameObject>();
         trashInBag = new List<GameObject>();
@@ -72,13 +73,16 @@ public class GameManager : MonoBehaviour
         }
 //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
     public void ChangeScene(){
+        //if coming out of loading scene, go to boat scene
         if(gameStart){
             gameStart=false;
             sceneNum = 0;
             }
+        //go to end scene if dives are over
         else if (numDives>=3){
-            sceneNum=3;
+            sceneNum=4;
         }
+        //otherwise switch between boat and underwater scene
         else{
             sceneNum= sceneNum*(-1)+1;
         }

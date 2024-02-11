@@ -7,26 +7,28 @@ public class Fish : MonoBehaviour
 
     public static Fish fish;
     // User Inputs
+    //amplitude of the side to side movement
     public float amplWiggle = 0.1f;
+    //amplitude of the up and down movement
     public float ampSway = 1f;
     public float movementSpeed = 1.0f;
+    //frequency of the up and down movement
     public float frequency = 0.8f;
 
-    // Position Storage Variables
-    //Vector3 size = new Vector3();
-   // Vector3 startPos = new Vector3();
+    //temp variable used to store amount of rotation in the y and x directions to be applied
     float rot_y;
     float rot_x;
+
+    //gameObject starting rotation
     Quaternion startRot;
     
 
-    // Use this for initialization
     void Start()
     {
         if (fish == null){
             fish =this;
         }
-        // Store the starting position & rotation of the object
+        // Store the starting rotation of the object
         transform.Rotate(new Vector3(0,Random.Range(-180,180),0), Space.World);
         startRot = transform.rotation;
         rot_y=transform.rotation.y;
@@ -36,22 +38,25 @@ public class Fish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if fish is getting close to the edge boundaries, turn it around
         if(Mathf.Abs(transform.position.x)>22||Mathf.Abs(transform.position.z)>22){
             rot_y+=180;
             //could destroy or change position
             Debug.Log("Out of Bounds " + transform.position);
         }
+        //if the fish is at the surface or floor of the ocean, destroy it
         if(transform.position.y>-0.2||transform.position.y<-15.2){Destroy(this);}
+
         // up and down wiggle
         rot_x=startRot.x+Mathf.Sin(Time.fixedTime * Mathf.PI * frequency)*ampSway;
         transform.Rotate(new Vector3(rot_x, 0, 0), Space.Self);
+
         //side to side wiggle
         rot_y=startRot.y+Mathf.Sin(Time.fixedTime * Mathf.PI * 0.01f)*amplWiggle;
         transform.Rotate(new Vector3(0,rot_y,0), Space.World);
   
-
-       transform.position += transform.forward* Time.deltaTime * movementSpeed;
-            // Debug.Log("Going up");
+        //forward movement
+        transform.position += transform.forward* Time.deltaTime * movementSpeed;
     }
         
     
