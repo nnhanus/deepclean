@@ -9,6 +9,7 @@ TagManager:
   - TrashBag
   - Coral
   - SceneLoader
+  - Dialogue
   layers:
   - Default
   - TransparentFX

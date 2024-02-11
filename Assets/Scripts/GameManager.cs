@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private AudioSource audio;
     private AudioClip clip;
     public AudioClip[] audioClips;
+    GameObject dialogueCanvas;
     List<string[]> dialogueSources = new List<string[]>();
     // Start is called before the first frame update
     private void Awake(){
@@ -39,6 +40,11 @@ public class GameManager : MonoBehaviour
         trashInWater= new List<GameObject>();
         trashInBag = new List<GameObject>();
   
+        dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
+        dialogueCanvas.SetActive(false);
+        //Debug.Log(dialogueCanvas);
+            
+        //dialogueCanvas.SetActive(false);
         dialogueSources.Add(new string[]{""});
         dialogueSources.Add(new string[]{"Plastics are a big catalyst for climate change. They are made from fossil fuels, take a long time to decompose, and emit greenhouse gasses as they do.","They also interfere with the oceans capacity to absorb carbon dioxide from the air. More CO2 in the atmosphere means more CO2 in the waters and a higher water acidity.", "These conditions are rapidly killing our coral reefs and threatening the aquatic biodiversity. By 2050 scientists believe that the oceans will be too hostile for coral to survive. It happens very quickly.", "I started this ocean clean up mission in 2019 and this is what it looked like then."});
         dialogueSources.Add(new string[]{"You'll see how much it's changed when you jump in. As more trash stays in the ocean, the more the coral reefs and its aquatic inhabitants die off."});
@@ -139,10 +145,12 @@ public class GameManager : MonoBehaviour
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
         string[] dialogue = dialogueSources[clipIndex];
+        dialogueCanvas.SetActive(true);
         foreach(string phrase in dialogue){
             textMeshPro.text=phrase;
             new WaitForSeconds(audioTime/dialogue.Length);
         }
+        dialogueCanvas.SetActive(false);
         yield return null;
     }
 }
