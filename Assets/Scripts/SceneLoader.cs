@@ -21,7 +21,8 @@ public class SceneLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         if (other.transform == player.transform){
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+            // SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+            FindObjectOfType<GameManager>().ChangeScene();
         }
     }
 }
