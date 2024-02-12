@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager manager;
-    //sceneNum 0 = boat scene 1=underwater scene 2=load scene 3=end scene
+    //sceneNum 0 = loadscene 1= boat scene 2= underwater scene 3=end scene
     int sceneNum;
     int totalScore=0;
     public int numDives = 0;
@@ -62,13 +62,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //create an array of audio clips and use the index as the parameter for triggerAudio
 
         
     }
 
 //use FindObjectOfType<GameManager>().AddToBin(bagCount); in the script that handles dumpin garbage into the bin
     public void AddToBin(int bagCount){
+        //nice job and do better audios
+        if(bagCount>6) triggerAudio(7);
+        else triggerAudio(8);
         totalScore+=bagCount;
         trashInBag.Clear();
     }
@@ -102,20 +104,22 @@ public class GameManager : MonoBehaviour
         //if coming out of loading scene, go to boat scene
         if(gameStart){
             gameStart=false;
-            sceneNum = 0;
+            sceneNum = 1;
             }
         //go to end scene if dives are over
         else if (numDives>=3){
-            sceneNum=4;
+            sceneNum=3;
         }
         //otherwise switch between boat and underwater scene
         else{
-            sceneNum= sceneNum*(-1)+1;
+            sceneNum= (sceneNum-1)*(-1)+2;
         }
-        if(sceneNum==1){
+        if(sceneNum==2){
+            //trigger splash
             triggerAudio(11);
             numDives+=1;
             if(numDives==3){
+                //trigger last dive audio
                 triggerAudio(9);
             }
         }else{
@@ -132,8 +136,8 @@ public class GameManager : MonoBehaviour
             audio.clip=clip;
         }
         else{
-            if(sceneNum==1){
-                //below water
+            if(sceneNum==2){
+                //below water play beep
                 audio.clip = audioClips[0];
                 audio.Play();
             }

@@ -17,6 +17,7 @@ public class TrashPicker : MonoBehaviour
     public bool hasTrash;
     private Quaternion initialRotation;
     private AudioSource audioSource;
+    GameManager manager;
 
     public GameObject trashBag;
     private trashbag trashBag_Script;
@@ -25,6 +26,7 @@ public class TrashPicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager=FindObjectOfType<GameManager>();
         collectedTrash = new List<GameObject>();
         // hasTrash = false;
         audioSource = GetComponent<AudioSource>();
@@ -73,14 +75,12 @@ public class TrashPicker : MonoBehaviour
             grabbed = other.gameObject;
             grabbed.GetComponent<Floater>().enabled = false;
            // Debug.Log(grabbed);
-            
             initialRotation = grabbed.transform.rotation;
         }
         if (hasTrash)
         {
            // Debug.Log("has trash");
             grabbed.transform.SetParent(transform);
-
             //play movement sound
             audioSource.Play();
             //grabbed.transform.SetPositionAndRotation(transform.position, transform.rotation);
@@ -91,12 +91,14 @@ public class TrashPicker : MonoBehaviour
           &&  gripReference != null
           && gripReference.action != null
           && gripReference.action.ReadValue<float>() > float.Epsilon
-          && collectedTrash.Count < 10
           && hasTrash) //check if the collisison is with the controller so it doesn't happen when random trash hits it or something
         {
-            GameObject trash = grabbed;
-            collectedTrash.Add(trash);
-            trashToBag();
+            if(collectedTrash.Count < 8){
+                GameObject trash = grabbed;
+                collectedTrash.Add(trash);
+                trashToBag();
+            }else{manager.triggerAudio(6);}//play bag full audio
+            
         }
     }
 
@@ -104,7 +106,7 @@ public class TrashPicker : MonoBehaviour
     {
         trashBag_Script.addTrashToBag(grabbed);
         grabbed.transform.SetParent(null);
-        FindObjectOfType<GameManager>().RemoveTrashFromWater(grabbed);
+        manager.RemoveTrashFromWater(grabbed);
         //grabbed.GetComponent<Floater>().enabled = true;
         grabbed = null;
         hasTrash = false;
