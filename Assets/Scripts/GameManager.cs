@@ -137,6 +137,8 @@ public class GameManager : MonoBehaviour
         }
         else{
             if(sceneNum==2){
+                //play primarily left ear
+                audio.panStereo=-0.75f;
                 //below water play beep
                 audio.clip = audioClips[0];
                 audio.Play();
@@ -145,6 +147,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
         }
        audio.Play();
+       //reset to both ears
+       audio.panStereo=0;
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
