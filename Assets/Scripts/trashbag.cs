@@ -13,18 +13,24 @@ public class trashbag : MonoBehaviour
     public ImgsFillDynamic gaugeBar;
     private TrashPicker trashPicker;
     public List<GameObject> collectedTrash; //change to whatever the type for trash is
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         collectedTrash = new List<GameObject>();
         trashPicker = xRController.GetComponent<TrashPicker>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void addTrashToBag(GameObject trash){
-        collectedTrash.Add(trash);
-        bagDisplay.SetText(collectedTrash.Count + "/8");
-        gaugeBar.SetValue(collectedTrash.Count / 8 * 100);
+        if (collectedTrash.Count < 8)
+        {
+            collectedTrash.Add(trash);
+            bagDisplay.SetText(collectedTrash.Count + "/8");
+            gaugeBar.SetValue(collectedTrash.Count / 8 * 100);
+        }
+        else { manager.triggerAudio(6); }
     }
 
     public void emptyTrash(){

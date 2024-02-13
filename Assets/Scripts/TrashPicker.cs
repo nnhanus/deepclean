@@ -53,8 +53,17 @@ public class TrashPicker : MonoBehaviour
         Debug.Log("OnTriggerEnter picker");
         Debug.Log(other);
 
-        if (other.tag == "TrashBag"){
-            trashToBag();
+        if (other.tag == "TrashBag"
+            && gripReference != null
+            && gripReference.action != null
+            && gripReference.action.ReadValue<float>() > float.Epsilon
+            && hasTrash)
+        {
+            //Debug.Log
+           
+                trashToBag();
+                GameObject trash = grabbed;
+                collectedTrash.Add(trash);
         }
         
         if (other.tag == "Trash")
@@ -87,7 +96,7 @@ public class TrashPicker : MonoBehaviour
             //grabbed.transform.position = transform.position;
             //grabbed.transform.localScale = transform.localScale;
         }
-        if (other.gameObject == trashBag
+        /*if (other.gameObject == trashBag
           &&  gripReference != null
           && gripReference.action != null
           && gripReference.action.ReadValue<float>() > float.Epsilon
@@ -99,7 +108,7 @@ public class TrashPicker : MonoBehaviour
                 trashToBag();
             }else{manager.triggerAudio(6);}//play bag full audio
             
-        }
+        }*/
     }
 
     public void trashToBag()

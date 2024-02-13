@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     //sceneNum 0 = loadscene 1= boat scene 2= underwater scene 3=end scene
     int sceneNum;
+    string sceneName;
     int totalScore=0;
     public int numDives = 0;
     bool gameStart =true;
@@ -99,22 +100,31 @@ public class GameManager : MonoBehaviour
            // Debug.Log(trashInWater.Count);
             return numDives;
         }
-//use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
-    public void ChangeScene(){
+    //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
+    public void ChangeScene() {
         //if coming out of loading scene, go to boat scene
-        if(gameStart){
-            gameStart=false;
+        if (gameStart) {
+            gameStart = false;
             sceneNum = 1;
-            }
+            sceneName = "Start_Scene";
+        }
         //go to end scene if dives are over
-        else if (numDives>=3){
-            sceneNum=3;
+        else if (numDives >= 3) {
+            sceneNum = 3;
+            sceneName = "End_Scene";
         }
         //otherwise switch between boat and underwater scene
-        else{
-            sceneNum= (sceneNum-1)*(-1)+2;
-        }
-        if(sceneNum==2){
+        else {
+            sceneNum = (sceneNum - 1) * (-1) + 2;
+            if (sceneName.Equals("Boat_Scene"))
+            {
+                sceneName = "Underwater_scene";
+            } else
+            {
+                sceneName = "Boat_Scene";
+            }
+        } 
+        if(sceneName.Equals("Underwater_scene")){
             //trigger splash
             triggerAudio(11);
             numDives+=1;
@@ -125,7 +135,7 @@ public class GameManager : MonoBehaviour
         }else{
             trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
         }
-        SceneManager.LoadScene(sceneNum);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
 //use FindObjectOfType<GameManager>().triggerAudio(clip #);
