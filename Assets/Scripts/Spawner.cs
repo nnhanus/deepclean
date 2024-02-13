@@ -136,7 +136,7 @@ public class Spawner : MonoBehaviour
                     if(Mathf.Abs(position.x)>spawnBoundsSize.x){position.x=player.transform.position.x-offset.x;}
                     position.y = Random.Range(-12.0f,-3.0f);
                     position.z = player.transform.position.z+offset.z;
-                    if(Mathf.Abs(position.z)>spawnBoundsSize.z){position.x=player.transform.position.z-offset.z;}
+                    if(Mathf.Abs(position.z)>spawnBoundsSize.z){position.z=player.transform.position.z-offset.z;}
                     //Debug.Log(position.x+","+position.y+","+position.z);
 
                     GameObject fish = Instantiate(prefab, position, Quaternion.identity);
