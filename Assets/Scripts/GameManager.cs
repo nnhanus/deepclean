@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
         }
         else{
             if(sceneNum==2){
-                //play primarily left ear
+                //play primarily in the left ear/
                 audio.panStereo=-0.75f;
                 //below water play beep
                 audio.clip = audioClips[0];
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             audio.clip=clip;
             StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
         }
-       while(audioSource.isPlaying) {WaitForSeconds(1);}
+       while(audio.isPlaying) {new WaitForSeconds(1);}
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
