@@ -20,9 +20,9 @@ public class TriggerArea : MonoBehaviour
     public void OnTriggerEnter(Collider other){
         if (other.gameObject == player){
             Debug.Log("Trigger area");
-            FindObjectOfType<GameManager<().triggerAudio(3);
-            FindObjectOfType<GameManager<().triggerAudio(4+phraseIndex);
-            phraseIndex=phraseIndex(-1)+1;
+            FindObjectOfType<GameManager>().triggerAudio(3);
+            FindObjectOfType<GameManager>().triggerAudio(4+phraseIndex);
+            phraseIndex=phraseIndex*(-1)+1;
 
         }
     }
