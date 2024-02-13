@@ -143,6 +143,9 @@ public class GameManager : MonoBehaviour
 
 //use FindObjectOfType<GameManager>().triggerAudio(clip #);
     public void triggerAudio(int clipIndex){
+        StartCoroutine(audioPlayer(clipIndex));
+    }
+    private IEnumerator audioPlayer(int clipIndex){
         //0 index is radio sound 1=Intro 2= Intro cont'd 3= Hey there 4=context 5=bag instruct 6= bag full 7=nice job 8= do better 9=last dive 10=outro 11=splash
         clip = audioClips[clipIndex];
         //while(audioSource.isPlaying) {WaitForSeconds(1);}
@@ -164,6 +167,7 @@ public class GameManager : MonoBehaviour
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
+       yield return null;
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         dialogueCanvas.SetActive(true);
