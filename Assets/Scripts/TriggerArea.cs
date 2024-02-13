@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriggerArea : MonoBehaviour
 {
     public GameObject player;
-    public AudioSource audio;
+    int phraseIndex=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,9 @@ public class TriggerArea : MonoBehaviour
     public void OnTriggerEnter(Collider other){
         if (other.gameObject == player){
             Debug.Log("Trigger area");
-            audio.Play();
+            FindObjectOfType<GameManager<().triggerAudio(3);
+            FindObjectOfType<GameManager<().triggerAudio(4+phraseIndex);
+            phraseIndex=phraseIndex(-1)+1;
 
         }
     }
