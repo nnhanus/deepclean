@@ -392,7 +392,7 @@ MonoBehaviour:
   amplWiggle: 0.1
   ampSway: 1
   movementSpeed: 1
-  frequency: 1
+  frequency: 0.5
 --- !u!1 &7663412790237094761
 GameObject:
   m_ObjectHideFlags: 0
