@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     //sceneNum 0 = loadscene 1= boat scene 2= underwater scene 3=end scene
     int sceneNum;
-    string sceneName;
+    string sceneName = "";
     int totalScore=0;
     public int numDives = 0;
     bool gameStart =true;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private AudioSource audio;
     private AudioClip clip;
     public AudioClip[] audioClips;
+    public TextMeshPro TMP_GO;
     GameObject dialogueCanvas;
     List<string[]> dialogueSources = new List<string[]>();
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         audio= GetComponent<AudioSource>();
         trashInWater= new List<GameObject>();
         trashInBag = new List<GameObject>();
+        
   
         dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
         dialogueCanvas.SetActive(false);
@@ -163,11 +165,12 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         //TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
-        TextMeshPro textMeshPro = GameObject.Find("Dialogue_Text").GetComponent<TextMeshPro>();
+        //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
         string[] dialogue = dialogueSources[clipIndex];
+        Debug.Log("SetActive");
         dialogueCanvas.SetActive(true);
         foreach(string phrase in dialogue){
-            textMeshPro.SetText(phrase);
+            TMP_GO.SetText(phrase);
             new WaitForSeconds(audioTime/dialogue.Length);
         }
         dialogueCanvas.SetActive(false);
