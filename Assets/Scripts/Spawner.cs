@@ -45,10 +45,10 @@ public class Spawner : MonoBehaviour
 
         //set spawnpoints relative to spawning box
         spawnPoints=new List<Vector3>();
-        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -spawnBoundsSize.y/2, spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -spawnBoundsSize.y/2, spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -spawnBoundsSize.y/2, -spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -spawnBoundsSize.y/2, -spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -12, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -12, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -12, -spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -12, -spawnBoundsSize.z/2));
         // could spawn trash that was in water in last scene from game manager
         //reset count of trash from each spawn point to zero
          trashCounts= new int[] {0,0,0,0};
