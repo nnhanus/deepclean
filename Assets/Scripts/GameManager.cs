@@ -105,8 +105,8 @@ public class GameManager : MonoBehaviour
         //if coming out of loading scene, go to boat scene
         if (gameStart) {
             gameStart = false;
-            sceneNum = 1;
-            sceneName = "Start_Scene";
+            /*sceneNum = 1;
+            sceneName = "Start_Scene";*/
         }
         //go to end scene if dives are over
         else if (numDives >= 3) {
@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
             sceneNum = (sceneNum - 1) * (-1) + 2;
             if (sceneName.Equals("Boat_Scene"))
             {
+                
                 sceneName = "Underwater_scene";
             } else
             {
@@ -161,11 +162,12 @@ public class GameManager : MonoBehaviour
        audio.panStereo=0;
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
-        TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
+        //TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
+        TextMeshPro textMeshPro = GameObject.Find("Dialogue_Text").GetComponent<TextMeshPro>();
         string[] dialogue = dialogueSources[clipIndex];
         dialogueCanvas.SetActive(true);
         foreach(string phrase in dialogue){
-            textMeshPro.text=phrase;
+            textMeshPro.SetText(phrase);
             new WaitForSeconds(audioTime/dialogue.Length);
         }
         dialogueCanvas.SetActive(false);
