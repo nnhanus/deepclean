@@ -44,6 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41b003a321d7484f91b75d2ed596f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numDives: 0
+  audioClips:
+  - {fileID: 8300000, guid: 9d78159dfc98b5a40a0e73ed05f4a360, type: 3}
+  - {fileID: 8300000, guid: dc145c4e8c30e8944aab33144e364432, type: 3}
+  - {fileID: 8300000, guid: 6822648dea299994098c0eaaff176ec6, type: 3}
+  - {fileID: 8300000, guid: c38a018f7f51bde4aa21101711702b90, type: 3}
+  - {fileID: 8300000, guid: a115919b780089e4e9456bd8b9058984, type: 3}
+  - {fileID: 8300000, guid: e03ca33e2e106eb4ba73c12d3145c0bc, type: 3}
+  - {fileID: 8300000, guid: 8f46623de8e34be47adf37c4d2b43ebb, type: 3}
+  - {fileID: 8300000, guid: 38326e8538e551f46b79fa4731c19d47, type: 3}
+  - {fileID: 8300000, guid: 9ce8633538bb7ff429da3853e9c62310, type: 3}
+  - {fileID: 8300000, guid: 26ed2bcdf246a554b86bf86c04ce2657, type: 3}
+  - {fileID: 8300000, guid: df1fb18a02f7c46419180cde2dc987ae, type: 3}
+  - {fileID: 8300000, guid: 64bc4ae1563099a4fb2866de740b3e81, type: 3}
+  TMP_GO: {fileID: 0}
 --- !u!82 &2176989545265842977
 AudioSource:
   m_ObjectHideFlags: 0
