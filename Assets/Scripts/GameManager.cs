@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private AudioSource audio;
     private AudioClip clip;
     public AudioClip[] audioClips;
-    public TextMeshPro TMP_GO;
+    //public GameObject TMP_GO;
     GameObject dialogueCanvas;
     List<string[]> dialogueSources = new List<string[]>();
     // Start is called before the first frame update
@@ -166,13 +166,18 @@ public class GameManager : MonoBehaviour
        audio.panStereo=0;
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
-        //TextMeshPro textMeshPro = FindObjectOfType<TextMeshPro>();
+        dialogueCanvas.SetActive(true);
+
+        TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
+        Debug.Log(" text : " + textMeshPro.text);
+
         //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
         string[] dialogue = dialogueSources[clipIndex];
-        Debug.Log("SetActive");
-        dialogueCanvas.SetActive(true);
+        
+        
         foreach(string phrase in dialogue){
-            TMP_GO.SetText(phrase);
+            textMeshPro.text = phrase;
+            Debug.Log(audioTime / dialogue.Length);
             new WaitForSeconds(audioTime/dialogue.Length);
         }
         dialogueCanvas.SetActive(false);
