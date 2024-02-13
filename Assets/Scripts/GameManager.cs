@@ -163,11 +163,11 @@ public class GameManager : MonoBehaviour
             audio.clip=clip;
             StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
         }
-       while(audio.isPlaying) {new WaitForSeconds(1);}
+       //while(audio.isPlaying) {new WaitForSeconds(1);}
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
-       yield return null;
+       yield return WaitForSeconds(audio.clip.Length);
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         dialogueCanvas.SetActive(true);
