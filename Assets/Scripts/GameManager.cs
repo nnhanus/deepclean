@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     //sceneNum 0 = loadscene 1= boat scene 2= underwater scene 3=end scene
     int sceneNum;
-    string sceneName = "";
+    string sceneName = "Underwater_scene";
     int totalScore=0;
     public int numDives = 0;
     bool gameStart =true;
@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
             audio.clip=clip;
         }
         else{
-            if(sceneNum==2){
+            if(sceneName.Equals("Underwater_scene")){
                 //play primarily in the left ear/
                 audio.panStereo=-0.75f;
                 //below water play beep
@@ -167,10 +167,11 @@ public class GameManager : MonoBehaviour
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
-       yield return WaitForSeconds(audio.clip.Length);
+       yield return new WaitForSeconds(audio.clip.length);
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         dialogueCanvas.SetActive(true);
+        Debug.Log(dialogueCanvas.active);
 
         TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
         Debug.Log(" text : " + textMeshPro.text);
@@ -184,7 +185,7 @@ public class GameManager : MonoBehaviour
             Debug.Log(audioTime / dialogue.Length);
             new WaitForSeconds(audioTime/dialogue.Length);
         }
-        dialogueCanvas.SetActive(false);
+        //dialogueCanvas.SetActive(false);
         yield return null;
     }
 }
