@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
     public void triggerAudio(int clipIndex){
         //0 index is radio sound 1=Intro 2= Intro cont'd 3= Hey there 4=context 5=bag instruct 6= bag full 7=nice job 8= do better 9=last dive 10=outro 11=splash
         clip = audioClips[clipIndex];
+        //while(audioSource.isPlaying) {WaitForSeconds(1);}
         if(clipIndex==11){
             audio.clip=clip;
         }
@@ -159,6 +160,7 @@ public class GameManager : MonoBehaviour
             audio.clip=clip;
             StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
         }
+       while(audioSource.isPlaying) {WaitForSeconds(1);}
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
