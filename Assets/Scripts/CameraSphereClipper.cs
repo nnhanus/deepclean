@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+
 public class CameraSphereClipper : MonoBehaviour
 {
     public Camera mainCam;
