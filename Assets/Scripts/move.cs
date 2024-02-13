@@ -54,20 +54,20 @@ public class move : MonoBehaviour
 
             if (value.x < -0.25)
             {
-                translateVect = m.MultiplyPoint3x4(minusX);
+                translateVect += m.MultiplyPoint3x4(minusX);
                 //translateVect.y = 0;
             }
             if (value.y > 0.25)
             {
-                translateVect = m.MultiplyPoint3x4(plusZ);
+                translateVect += m.MultiplyPoint3x4(plusZ);
             }
             if (value.y < -0.25)
             {
-                translateVect = m.MultiplyPoint3x4(minusZ);
+                translateVect += m.MultiplyPoint3x4(minusZ);
             }
             if (value.x > 0.25)
             {
-                translateVect = m.MultiplyPoint3x4(plusX);
+                translateVect += m.MultiplyPoint3x4(plusX);
                 //translateVect.y = 0;
             }
 
