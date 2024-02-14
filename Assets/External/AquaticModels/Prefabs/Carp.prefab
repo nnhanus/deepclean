@@ -702,9 +702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplWiggle: 0.1
-  ampSway: 1
+  ampSway: 0.5
   movementSpeed: 1
-  frequency: 1
+  frequency: 0.5
 --- !u!1 &8385626602132068842
 GameObject:
   m_ObjectHideFlags: 0

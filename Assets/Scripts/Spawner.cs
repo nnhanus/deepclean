@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     
     public bool isVisible = false;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public GameObject[] trashPrefabs;
     
     public float minSpawnDelay = 1f;
@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
 
         collider = GetComponent<Collider>();
         spawnBoundsSize = 0.5f*collider.bounds.size;
-        audioSource = GetComponent<AudioSource>();
+        if(audioSource==null)audioSource = GetComponent<AudioSource>();
         audioSource.Play();
 
         //set spawnpoints relative to spawning box
@@ -141,7 +141,7 @@ public class Spawner : MonoBehaviour
 
                     GameObject fish = Instantiate(prefab, position, Quaternion.identity);
                     manager.ChangeNumFishInWater(1);
-                    Destroy(fish, Random.Range(minLifeTime, maxLifeTime));
+                    //Destroy(fish, Random.Range(minLifeTime, maxLifeTime));
 
                 }
             //wait a random amount of time in the determined range between each spawn

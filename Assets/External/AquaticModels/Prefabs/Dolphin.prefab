@@ -53,8 +53,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210192432955851477}
-  m_LocalRotation: {x: -0.000000026010643, y: -0.000000010248291, z: 0.124618426,
-    w: 0.9922048}
+  m_LocalRotation: {x: -0.000000026010643, y: -0.000000010248291, z: 0.124618426, w: 0.9922048}
   m_LocalPosition: {x: -3.7252746e-11, y: 0.0048474013, z: -1.3322676e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -108,6 +107,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 1378867616011020483}
   - component: {fileID: 6221736096753632219}
   - component: {fileID: 960932912303894199}
+  - component: {fileID: 6873020067878761371}
   m_Layer: 0
   m_Name: Dolphin
   m_TagString: Untagged
@@ -256,6 +257,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 3.2036328}
   m_Center: {x: 0, y: 0, z: -0.48734188}
+--- !u!114 &6873020067878761371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700436920675506896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplWiggle: 0
+  ampSway: 1
+  movementSpeed: 1.2
+  frequency: 0.2
 --- !u!1 &3107137924422291631
 GameObject:
   m_ObjectHideFlags: 0

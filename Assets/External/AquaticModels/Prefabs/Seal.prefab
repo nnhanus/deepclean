@@ -269,7 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81a5e723c8c4454dae9f6bf394942df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degreesWiggle: 15
+  amplWiggle: 0
+  ampSway: 0
   movementSpeed: 1
   frequency: 1
 --- !u!1 &3059668500047367125
