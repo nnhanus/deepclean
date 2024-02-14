@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     private bool[] inArea={false,false,false,false};
      private Vector3 spawnBoundsSize;
      private Collider collider;
-    public float posVar = 1;
+    public float posVar = 3;
     private int[] trashCounts;
 
     public GameObject [] fishPrefabs; 
@@ -40,15 +40,15 @@ public class Spawner : MonoBehaviour
 
         collider = GetComponent<Collider>();
         spawnBoundsSize = 0.5f*collider.bounds.size;
-        //  audioSource = GetComponent<AudioSource>();
-        //  audioSource.Play();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
 
         //set spawnpoints relative to spawning box
         spawnPoints=new List<Vector3>();
-        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -12, spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -12, spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -12, -spawnBoundsSize.z/2));
-        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -12, -spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -10, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -10, spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (spawnBoundsSize.x/2, -10, -spawnBoundsSize.z/2));
+        spawnPoints.Add(new Vector3 (-spawnBoundsSize.x/2, -10, -spawnBoundsSize.z/2));
         // could spawn trash that was in water in last scene from game manager
         //reset count of trash from each spawn point to zero
          trashCounts= new int[] {0,0,0,0};

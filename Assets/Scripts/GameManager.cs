@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager manager;
-    //sceneNum 0 = loadscene 1= boat scene 2= underwater scene 3=end scene
     int sceneNum;
     string sceneName = "Underwater_scene";
     int totalScore=0;
@@ -43,8 +42,8 @@ public class GameManager : MonoBehaviour
         trashInBag = new List<GameObject>();
         
   
-        dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
-        dialogueCanvas.SetActive(false);
+        // dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
+        // dialogueCanvas.SetActive(false);
         //Debug.Log(dialogueCanvas);
             
         //dialogueCanvas.SetActive(false);
@@ -87,7 +86,9 @@ public class GameManager : MonoBehaviour
         trash.GetComponent<Renderer>().enabled = false;
         // Destroy(trash);
     }
-
+    public int GetScore(){
+        return totalScore;
+    }
     public int NumTrashInWater(){
         Debug.Log(trashInWater.Count);
         return trashInWater.Count;
@@ -107,8 +108,8 @@ public class GameManager : MonoBehaviour
         //if coming out of loading scene, go to boat scene
         if (gameStart) {
             gameStart = false;
-            /*sceneNum = 1;
-            sceneName = "Start_Scene";*/
+            sceneNum = 1;
+            sceneName = "Start_Scene";
         }
         //go to end scene if dives are over
         else if (numDives >= 3) {
@@ -120,30 +121,27 @@ public class GameManager : MonoBehaviour
             sceneNum = (sceneNum - 1) * (-1) + 2;
             if (sceneName.Equals("Boat_Scene"))
             {
-                
                 sceneName = "Underwater_scene";
+                triggerAudio(11);
+                numDives+=1;
+                if(numDives==3){
+                    //trigger last dive audio
+                    triggerAudio(9);
+                }
             } else
             {
                 sceneName = "Boat_Scene";
+                trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
             }
         } 
-        if(sceneName.Equals("Underwater_scene")){
-            //trigger splash
-            triggerAudio(11);
-            numDives+=1;
-            if(numDives==3){
-                //trigger last dive audio
-                triggerAudio(9);
-            }
-        }else{
-            trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
-        }
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
 //use FindObjectOfType<GameManager>().triggerAudio(clip #);
     public void triggerAudio(int clipIndex){
         StartCoroutine(audioPlayer(clipIndex));
+        if(clipIndex!=11)
+            StartCoroutine(triggerDialogue(clipIndex, audioClips[clipIndex].length)); 
     }
     private IEnumerator audioPlayer(int clipIndex){
         //0 index is radio sound 1=Intro 2= Intro cont'd 3= Hey there 4=context 5=bag instruct 6= bag full 7=nice job 8= do better 9=last dive 10=outro 11=splash
@@ -161,7 +159,7 @@ public class GameManager : MonoBehaviour
                 audio.Play();
             }
             audio.clip=clip;
-            StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
+            // StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
         }
        //while(audio.isPlaying) {new WaitForSeconds(1);}
        audio.Play();
@@ -174,15 +172,13 @@ public class GameManager : MonoBehaviour
         Debug.Log(dialogueCanvas.active);
 
         TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
-        Debug.Log(" text : " + textMeshPro.text);
+        //Debug.Log(" text : " + textMeshPro.text);
 
         //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
-        string[] dialogue = dialogueSources[clipIndex];
-        
-        
+        string[] dialogue = dialogueSources[clipIndex]; 
         foreach(string phrase in dialogue){
             textMeshPro.text = phrase;
-            Debug.Log(audioTime / dialogue.Length);
+            Debug.Log(phrase +" "+audioTime / dialogue.Length);
             new WaitForSeconds(audioTime/dialogue.Length);
         }
         //dialogueCanvas.SetActive(false);
