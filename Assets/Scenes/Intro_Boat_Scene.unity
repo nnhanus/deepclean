@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1080437322}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3302,6 +3302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
+  audioSource: {fileID: 73822839}
   fishPrefabs:
   - {fileID: 2022036273397845949, guid: 7c6303ea4f279a0448f7e38470d26ca2, type: 3}
   - {fileID: 4972658214013244876, guid: 3901484d89c26ab40a5f3d2aeda149bf, type: 3}
@@ -3315,8 +3316,9 @@ MonoBehaviour:
   - {fileID: 4972658214013244876, guid: 3901484d89c26ab40a5f3d2aeda149bf, type: 3}
   - {fileID: 7942453042299989213, guid: ebf1e21612cefb842983c45009bb8ed0, type: 3}
   - {fileID: 7942453042299989213, guid: ebf1e21612cefb842983c45009bb8ed0, type: 3}
-  player: {fileID: 470090948}
+  player: {fileID: 608758972}
   manager: {fileID: 906294079}
+  fishCount: 0
 --- !u!65 &147082023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9624,7 +9626,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375382077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1dc13ce0965b040902bf935235afb6, type: 3}
   m_Name: 
@@ -33702,7 +33704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414575907}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1dc13ce0965b040902bf935235afb6, type: 3}
   m_Name: 
@@ -48348,7 +48350,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001323006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1dc13ce0965b040902bf935235afb6, type: 3}
   m_Name: 

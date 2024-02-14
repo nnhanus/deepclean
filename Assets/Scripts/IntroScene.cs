@@ -6,7 +6,7 @@ public class IntroScene : MonoBehaviour
 {
     
     public bool isVisible = false;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
      private Vector3 spawnBoundsSize;
      private Collider collider;
 
@@ -14,6 +14,7 @@ public class IntroScene : MonoBehaviour
 
     public GameObject player;
     public GameManager manager;
+    public int fishCount = 0;
 
     //private void OnEnable()
    // {
@@ -27,10 +28,10 @@ public class IntroScene : MonoBehaviour
         // get which dive the player is on (max three)
         collider = GetComponent<Collider>();
         spawnBoundsSize = 0.5f*collider.bounds.size;
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         audioSource.Play();
 
-         StartCoroutine(SpawnFish());
+        StartCoroutine(SpawnFish());
          
     }
     
@@ -45,7 +46,6 @@ public class IntroScene : MonoBehaviour
     // heavily dependent on the dive number -  further in the game, less fish spawn and more exotic fish don't spawn
      private IEnumerator SpawnFish()
     {   
-        int fishCount = 0;
         //fish spawn more frequently earlier in the game
         float minFishDelay= 1;
         float maxFishDelay=3;
