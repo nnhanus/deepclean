@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boat_Scene.unity
     guid: 328d0c47e5ea4ee42964318af854a882
+  - enabled: 1
+    path: Assets/Scenes/Intro_Boat_Scene.unity
+    guid: 6d77ad755b65d2a45aac5756219f111e
+  - enabled: 1
+    path: Assets/Scenes/End_Scene.unity
+    guid: 9ab4a7c04a13d0d44b34784a8dfe3b93
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 602a272af5a7b51419be6b90a0205a71, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: bf194476b70604542b1cc0948ca71f50, type: 2}

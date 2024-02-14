@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR;
+using UnityEngine.InputSystem;
 
 public class IntroScene : MonoBehaviour
 {
-    
+    [SerializeField]
+    private InputActionReference m_SecondaryButton;
+    public InputActionReference secondaryButton { get => m_SecondaryButton; set => m_SecondaryButton = value; }
+
     public bool isVisible = false;
     private AudioSource audioSource;
      private Vector3 spawnBoundsSize;
@@ -32,6 +38,17 @@ public class IntroScene : MonoBehaviour
 
          StartCoroutine(SpawnFish());
          
+    }
+
+    private void Update()
+    {
+        if (secondaryButton != null
+            && secondaryButton.action != null
+            && secondaryButton.action.ReadValue<float>() > float.Epsilon) //checks if Y or B button is pressed
+        {
+            Debug.Log("SecondaryButton");
+            manager.ChangeScene();
+        }
     }
     
 

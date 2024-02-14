@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     public float minSpawnDelay = 1f;
     public float maxSpawnDelay = 2f;
     public int trashSpawnLimit = 4;
-    public int trashLimit = 10;
+    public int trashLimit = 20;
     private List<Vector3> spawnPoints;
     private bool[] inArea={false,false,false,false};
      private Vector3 spawnBoundsSize;

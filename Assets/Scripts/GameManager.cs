@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager manager;
     int sceneNum;
-    string sceneName = "Underwater_scene";
+    string sceneName = "Intro_Boat_Scene";
     int totalScore=0;
     public int numDives = 0;
     bool gameStart =true;
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         if (gameStart) {
             gameStart = false;
             sceneNum = 1;
-            sceneName = "Start_Scene";
+            sceneName = "Boat_Scene";
         }
         //go to end scene if dives are over
         else if (numDives >= 3) {

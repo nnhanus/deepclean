@@ -68,6 +68,7 @@ public class TrashPicker : MonoBehaviour
         
         if (other.tag == "Trash")
         {
+            
             //Debug.Log("hit trash");
         }
         if(other.tag == "SceneLoader"){
@@ -81,17 +82,18 @@ public class TrashPicker : MonoBehaviour
         {
             hasTrash = true;
            // Debug.Log("pick trash");
-            grabbed = other.gameObject;
+            grabbed = other.gameObject;s
             grabbed.GetComponent<Floater>().enabled = false;
            // Debug.Log(grabbed);
             initialRotation = grabbed.transform.rotation;
+            audioSource.Play();
         }
         if (hasTrash)
         {
            // Debug.Log("has trash");
             grabbed.transform.SetParent(transform);
             //play movement sound
-            audioSource.Play();
+            
             //grabbed.transform.SetPositionAndRotation(transform.position, transform.rotation);
             //grabbed.transform.position = transform.position;
             //grabbed.transform.localScale = transform.localScale;
