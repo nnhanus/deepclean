@@ -79,8 +79,10 @@ public class EndScene : MonoBehaviour
         for(int i = 0; i<count; i++){
             GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
             prefab.GetComponent<Rigidbody>().useGravity=true;
+            prefab.GetComponent<Collider>().isTrigger = false;
             prefab.GetComponent<Floater>().enabled=false;
             GameObject trash = Instantiate(prefab, spawnPoints[index], Quaternion.identity);
+            Debug.Log(trash.transform.position);
 
         }
             //wait a random amount of time in the determined range between each spawn
