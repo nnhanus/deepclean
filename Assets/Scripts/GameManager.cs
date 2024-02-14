@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     //we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
     List<GameObject> trashInBag;
-    int numFish;
+    int numFish=0;
     private AudioSource audio;
     private AudioClip clip;
     public AudioClip[] audioClips;

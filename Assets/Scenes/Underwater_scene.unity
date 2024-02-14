@@ -4124,7 +4124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
       propertyPath: numDives
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
       propertyPath: audioClips.Array.size
@@ -13987,40 +13987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c720d2b0c0fe9c49ba4d9f594b200b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 719546493}
-  distances:
-  - 20
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 500
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
 --- !u!4 &721077391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1027898211358905205, guid: 69eeef28be8229b47a5e4ca93a100578, type: 3}
@@ -43863,6 +43829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
+  audioSource: {fileID: 1346865794}
   trashPrefabs:
   - {fileID: 3568967375657355470, guid: fc3776c7b8ebe7343b16f382608d5fe4, type: 3}
   - {fileID: 4862431660287356074, guid: 9cbb7ce23ef09a44480c4a256051961f, type: 3}

@@ -18,6 +18,9 @@ public class Fish : MonoBehaviour
     //temp variable used to store amount of rotation in the y and x directions to be applied
     float rot_y;
     float rot_x;
+    float minSize = 0.1f;
+    float growthRate  = 1.0f;
+    float scale =1.0f;
 
     //gameObject starting rotation
     Quaternion startRot;
@@ -39,13 +42,15 @@ public class Fish : MonoBehaviour
     void Update()
     {
         //if fish is getting close to the edge boundaries, turn it around
-        if(Mathf.Abs(transform.position.x)>22||Mathf.Abs(transform.position.z)>22){
-            rot_y+=180;
+        if(Mathf.Abs(transform.position.x)>26||Mathf.Abs(transform.position.z)>26||transform.position.y>-0.2||transform.position.y<-15.2){
+            //rot_y+=180;
             //could destroy or change position
             Debug.Log("Out of Bounds " + transform.position);
+            transform.localScale = Vector3.one * scale;
+            scale -= growthRate * Time.deltaTime;
+            if (scale < minSize) Destroy (gameObject);
         }
         //if the fish is at the surface or floor of the ocean, destroy it
-        if(transform.position.y>-0.2||transform.position.y<-15.2){Destroy(this);}
 
         // up and down wiggle
         rot_x=startRot.x+Mathf.Sin(Time.fixedTime * Mathf.PI * frequency)*ampSway;
@@ -63,7 +68,7 @@ public class Fish : MonoBehaviour
     void OnDestroy(){
         Debug.Log(gameObject.name);
         //Fade doesn't work because material isnt transparent, need to figure out work around
-        iTween.FadeTo(gameObject, iTween.Hash("alpha", 0f, "time", 1.0f));
+       // iTween.FadeTo(gameObject, iTween.Hash("alpha", 0f, "time", 1.0f));
         FindObjectOfType<GameManager>().ChangeNumFishInWater(-1);
     }
 }
