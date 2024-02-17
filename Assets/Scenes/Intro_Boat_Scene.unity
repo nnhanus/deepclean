@@ -12028,6 +12028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TriggerReference: {fileID: 2526168894431210536, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
   m_AxisReference: {fileID: 7596212294181904713, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
+  xRange: []
+  zRange: []
   RigContainer: {fileID: 470090948}
   xRController: {fileID: 1534271981}
   minHeight: -15
@@ -12124,7 +12126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470090948}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.554, y: 2, z: 5.092}
+  m_LocalPosition: {x: 3, y: 2, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 311069435}

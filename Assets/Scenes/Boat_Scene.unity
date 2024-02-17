@@ -7382,7 +7382,7 @@ MonoBehaviour:
   m_AxisReference: {fileID: 7596212294181904713, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
   xRange:
   - 0.3
-  - 3.25
+  - 4
   zRange:
   - 4.8
   - 5.6
@@ -7481,8 +7481,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470090948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.554, y: 2, z: 4.83}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3, y: 2, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 311069435}
@@ -7494,7 +7494,7 @@ Transform:
   - {fileID: 563888003}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 209.49, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &477588327
 GameObject:
   m_ObjectHideFlags: 0

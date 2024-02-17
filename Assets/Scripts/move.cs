@@ -39,7 +39,7 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 translateVect = new Vector3(0, 0, 0);
         if (triggerReference != null
             && triggerReference.action != null
             && triggerReference.action.ReadValue<float>() > 0.5
@@ -47,10 +47,10 @@ public class move : MonoBehaviour
             && axisReference.action != null)
         {
             Vector2 value = axisReference.action.ReadValue<Vector2>();
-
+            //Vector3 translateVect = new Vector3(0, 0, 0);
             Quaternion rotation = Quaternion.Euler(xRController.gameObject.transform.rotation.eulerAngles);
             Matrix4x4 m = Matrix4x4.Rotate(rotation);
-            Vector3 translateVect = new Vector3(0, 0, 0);
+            
            // Debug.Log("x = " + value.x + ", y = " + value.y);
 
             if (value.x < -0.25)
@@ -74,7 +74,8 @@ public class move : MonoBehaviour
 
             //translateVect *= value;
             //translateVect.y = 0;
-            // TODO: check for building colision,
+
+            // TODO: check for object colision,
             //before moving the rig, you can check if it's still in a certain area and modify the translation vector if it's trying to get out
             if (RigContainer.transform.position.y + translateVect.y < minHeight){
                 translateVect.y = 0;
@@ -84,13 +85,46 @@ public class move : MonoBehaviour
             if (RigContainer.transform.position.x + translateVect.x < xRange[0] || RigContainer.transform.position.x + translateVect.x > xRange[1]){
                  translateVect.x = 0;
             } 
-             if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.x > zRange[1]){
+             if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.z > zRange[1]){
                  translateVect.z = 0;
             } 
 
 
             RigContainer.transform.position += translateVect;
         }
+
+        //arrow movement for testing purposes below
+
+        float speed = 1f;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            translateVect.z = speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            translateVect.z = - speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            translateVect.x = speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            translateVect.x= - speed * Time.deltaTime;
+        }
+        if (RigContainer.transform.position.x + translateVect.x < xRange[0] || RigContainer.transform.position.x + translateVect.x > xRange[1]){
+                 translateVect.x = 0;
+        } 
+        if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.z > zRange[1]){
+                 translateVect.z = 0;
+        } 
+        RigContainer.transform.position += translateVect;
+        //arrow movement for testing purposes above
+
         //Here I tried to use the volume key as up and down but didn't work
         // if (InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(CommonUsages.primaryButton, out up) && up && RigContainer.transform.position.y < 100)
         // {
