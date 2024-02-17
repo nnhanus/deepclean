@@ -7359,6 +7359,7 @@ GameObject:
   - component: {fileID: 470090951}
   - component: {fileID: 470090950}
   - component: {fileID: 470090949}
+  - component: {fileID: 470090955}
   m_Layer: 0
   m_Name: 'PlayerRig '
   m_TagString: Untagged
@@ -7388,7 +7389,7 @@ MonoBehaviour:
   - 5.6
   RigContainer: {fileID: 470090948}
   xRController: {fileID: 1534271981}
-  minHeight: -15
+  minHeight: -14.5
   maxHeight: 0
 --- !u!114 &470090950
 MonoBehaviour:
@@ -7495,6 +7496,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!136 &470090955
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470090948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &477588327
 GameObject:
   m_ObjectHideFlags: 0
@@ -29077,7 +29092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5f382e8f4dc6b45aed476dff8e861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 305660644}
+  player: {fileID: 470090948}
 --- !u!82 &1915633940
 AudioSource:
   m_ObjectHideFlags: 0

@@ -42948,7 +42948,7 @@ MonoBehaviour:
   - 25
   RigContainer: {fileID: 1996170006}
   xRController: {fileID: 1492593667}
-  minHeight: -15
+  minHeight: -14.5
   maxHeight: 0
 --- !u!1 &1998220209
 GameObject:

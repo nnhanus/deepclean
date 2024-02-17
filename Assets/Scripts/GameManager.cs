@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
         trashInBag = new List<GameObject>();
         
   
-        // dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
-        // dialogueCanvas.SetActive(false);
+        dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
+        dialogueCanvas.SetActive(false);
         //Debug.Log(dialogueCanvas);
             
         //dialogueCanvas.SetActive(false);
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         dialogueSources.Add(new string[]{"Plastics are a big catalyst for climate change. They are made from fossil fuels, take a long time to decompose, and emit greenhouse gasses as they do.","They also interfere with the oceans capacity to absorb carbon dioxide from the air. More CO2 in the atmosphere means more CO2 in the waters and a higher water acidity.", "These conditions are rapidly killing our coral reefs and threatening the aquatic biodiversity. By 2050 scientists believe that the oceans will be too hostile for coral to survive. It happens very quickly.", "I started this ocean clean up mission in 2019 and this is what it looked like then."});
         dialogueSources.Add(new string[]{"You'll see how much it's changed when you jump in. As more trash stays in the ocean, the more the coral reefs and its aquatic inhabitants die off."});
         dialogueSources.Add(new string[]{"Hey there!"});
-        dialogueSources.Add(new string[]{"Thanks again for helping out with our ocean cleanup.", "There's 5.25 trillion pieces of garbage out here, so what we are doing today will barely make a dent- but every piece counts!"});
+        dialogueSources.Add(new string[]{"Thanks again for helping out with our ocean cleanup. There's 5.25 trillion pieces of garbage ","out here, so what we are doing today will barely make a dent- but every piece counts!"});
         dialogueSources.Add(new string[]{"Your bag can only hold 8 pieces of trash, so when it's full come back up here and dump it in the bin."});
         dialogueSources.Add(new string[]{"Your bag is looking full!"});
         dialogueSources.Add(new string[]{"Woah, nice job!"});
@@ -139,10 +139,21 @@ public class GameManager : MonoBehaviour
 
 //use FindObjectOfType<GameManager>().triggerAudio(clip #);
     public void triggerAudio(int clipIndex){
+        StartCoroutine(waitForSound(clipIndex));
+    }
+    private IEnumerator waitForSound(int clipIndex)
+    {
+        //Wait Until Sound has finished playing
+        while (audio.isPlaying)
+        {
+            yield return null;
+        }
+
         StartCoroutine(audioPlayer(clipIndex));
         if(clipIndex!=11)
             StartCoroutine(triggerDialogue(clipIndex, audioClips[clipIndex].length)); 
     }
+
     private IEnumerator audioPlayer(int clipIndex){
         //0 index is radio sound 1=Intro 2= Intro cont'd 3= Hey there 4=context 5=bag instruct 6= bag full 7=nice job 8= do better 9=last dive 10=outro 11=splash
         clip = audioClips[clipIndex];
@@ -158,19 +169,17 @@ public class GameManager : MonoBehaviour
                 audio.clip = audioClips[0];
                 audio.Play();
             }
-            audio.clip=clip;
-            // StartCoroutine(triggerDialogue(clipIndex, audio.clip.length));          
+            audio.clip=clip;         
         }
-       //while(audio.isPlaying) {new WaitForSeconds(1);}
        audio.Play();
        //reset to both ears
        audio.panStereo=0;
-       yield return new WaitForSeconds(audio.clip.length);
+       //yield return new WaitForSeconds(audio.clip.length);
+       yield return null;
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         dialogueCanvas.SetActive(true);
         Debug.Log(dialogueCanvas.activeSelf);
-
         TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
         //Debug.Log(" text : " + textMeshPro.text);
 
@@ -179,9 +188,9 @@ public class GameManager : MonoBehaviour
         foreach(string phrase in dialogue){
             textMeshPro.text = phrase;
             Debug.Log(phrase +" "+audioTime / dialogue.Length);
-            new WaitForSeconds(audioTime/dialogue.Length);
+            yield return new WaitForSeconds(audioTime/dialogue.Length);
         }
-        //dialogueCanvas.SetActive(false);
+        dialogueCanvas.SetActive(false);
         yield return null;
     }
 }
