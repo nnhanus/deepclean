@@ -82,7 +82,7 @@ public class TrashPicker : MonoBehaviour
         {
             hasTrash = true;
            // Debug.Log("pick trash");
-            grabbed = other.gameObject;s
+            grabbed = other.gameObject;
             grabbed.GetComponent<Floater>().enabled = false;
            // Debug.Log(grabbed);
             initialRotation = grabbed.transform.rotation;

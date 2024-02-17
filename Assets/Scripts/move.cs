@@ -14,7 +14,8 @@ public class move : MonoBehaviour
     [SerializeField]
     private InputActionReference m_AxisReference;
     public InputActionReference axisReference { get => m_AxisReference; set => m_AxisReference = value; }
-
+    public float[] xRange;
+    public float[] zRange;
     // Define these two as the XRRig in Unity
     public GameObject RigContainer;
     // and that as your controller
@@ -80,6 +81,13 @@ public class move : MonoBehaviour
             } else if (RigContainer.transform.position.y + translateVect.y > maxHeight){
                 translateVect.y = 0;
             }
+            if (RigContainer.transform.position.x + translateVect.x < xRange[0] || RigContainer.transform.position.x + translateVect.x > xRange[1]){
+                 translateVect.x = 0;
+            } 
+             if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.x > zRange[1]){
+                 translateVect.z = 0;
+            } 
+
 
             RigContainer.transform.position += translateVect;
         }

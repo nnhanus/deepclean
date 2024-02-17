@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7380,6 +7380,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TriggerReference: {fileID: 2526168894431210536, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
   m_AxisReference: {fileID: 7596212294181904713, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
+  xRange:
+  - 0.3
+  - 3.25
+  zRange:
+  - 4.8
+  - 5.6
   RigContainer: {fileID: 470090948}
   xRController: {fileID: 1534271981}
   minHeight: -15
@@ -7476,7 +7482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470090948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.554, y: 2, z: 5.092}
+  m_LocalPosition: {x: 2.554, y: 2, z: 4.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 311069435}
@@ -8950,7 +8956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563887996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.569, y: -1, z: 0}
+  m_LocalPosition: {x: 0.569, y: -0.8, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1374505171}
@@ -28978,7 +28984,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0419896, y: 1.8289754, z: 2.5330048}
+  m_Size: {x: 2.5, y: 1.8289754, z: 2.5330048}
   m_Center: {x: 0.4821967, y: 0.41448772, z: -0.1121068}
 --- !u!23 &1915633935
 MeshRenderer:

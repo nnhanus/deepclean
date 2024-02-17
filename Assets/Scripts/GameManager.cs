@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator triggerDialogue(int clipIndex, float audioTime){
         dialogueCanvas.SetActive(true);
-        Debug.Log(dialogueCanvas.active);
+        Debug.Log(dialogueCanvas.activeSelf);
 
         TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
         //Debug.Log(" text : " + textMeshPro.text);

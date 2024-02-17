@@ -41,10 +41,10 @@ public class Fish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if fish is getting close to the edge boundaries, turn it around
+
         if(Mathf.Abs(transform.position.x)>26||Mathf.Abs(transform.position.z)>26||transform.position.y>-0.2||transform.position.y<-15.2){
+            //if fish is getting close to the edge boundaries, turn it around
             //rot_y+=180;
-            //could destroy or change position
             Debug.Log("Out of Bounds " + transform.position);
             transform.localScale = Vector3.one * scale;
             scale -= growthRate * Time.deltaTime;
