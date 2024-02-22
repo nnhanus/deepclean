@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager manager;
     int sceneNum;
-    string sceneName = "Intro_Boat_Scene";
+    public string sceneName = "Intro_Boat_Scene";
     int totalScore=0;
     public int numDives = 0;
     bool gameStart =true;

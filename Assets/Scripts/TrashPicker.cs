@@ -28,7 +28,7 @@ public class TrashPicker : MonoBehaviour
     {
         manager=FindObjectOfType<GameManager>();
         collectedTrash = new List<GameObject>();
-        // hasTrash = false;
+        hasTrash = false;
         audioSource = GetComponent<AudioSource>();
         trashBag_Script = trashBag.GetComponent<trashbag>();
     }
@@ -44,6 +44,7 @@ public class TrashPicker : MonoBehaviour
         //}
         if( hasTrash && m_GripReference.action.ReadValue<float>() < float.Epsilon)
         {
+            
             releaseTrash();
         }
     }
@@ -51,7 +52,13 @@ public class TrashPicker : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter picker");
-        Debug.Log(other);
+        // Debug.Log(other);
+        // Debug.Log(manager.sceneName);
+        // Debug.Log(other.tag);
+        if (manager.sceneName.Equals("Boat_Scene") && other.tag == "TrashBag"){
+            trashBag.transform.parent = this.transform;
+
+        }
 
         if (other.tag == "TrashBag"
             && gripReference != null
@@ -59,11 +66,10 @@ public class TrashPicker : MonoBehaviour
             && gripReference.action.ReadValue<float>() > float.Epsilon
             && hasTrash)
         {
-            //Debug.Log
-           
-                trashToBag();
-                GameObject trash = grabbed;
-                collectedTrash.Add(trash);
+            trashToBag();
+            GameObject trash = grabbed;
+            collectedTrash.Add(trash);
+            
         }
         
         if (other.tag == "Trash")

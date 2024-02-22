@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28540,7 +28540,7 @@ MonoBehaviour:
   m_GripReference: {fileID: -5194266436686895582, guid: 699f4d2073ed2e34ea7f7944795b868c, type: 3}
   handSphere: {fileID: 1871917492}
   grabbed: {fileID: 0}
-  hasTrash: 1
+  hasTrash: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &1871917492
