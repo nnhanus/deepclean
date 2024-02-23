@@ -11,8 +11,8 @@ public class Floater : MonoBehaviour
 
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
-    Vector3 size = new Vector3();
-    Vector3 startPos = new Vector3();
+    public Vector3 size = new Vector3();
+    public Vector3 startPos = new Vector3();
     
 
     // Use this for initialization
@@ -37,21 +37,26 @@ public class Floater : MonoBehaviour
         //transform.position = tempPos;
 
        
-        if (startPos.y -transform.position.y <Mathf.Min((-Mathf.Sqrt(size.y)),-0.2f) ||transform.position.y >=-1 ) {
-            if(transform.position.y>0) {
+        if (startPos.y - transform.position.y < Mathf.Min(-size.y,-0.2f) || transform.position.y >= -1 ) 
+        {
+            if(transform.position.y>0) 
+            {
                 transform.position=new Vector3(transform.position.x,0,transform.position.z);
                 GetComponent<Rigidbody>().AddForce(Vector3.down*0.05f, ForceMode.VelocityChange); 
-                }
-             GetComponent<Rigidbody>().AddForce(Vector3.down*amplitude, ForceMode.Force); 
+            }
+            GetComponent<Rigidbody>().AddForce(Vector3.down*amplitude, ForceMode.Force); 
+            Debug.Log("Going down");
         }
-        else if(startPos.y-transform.position.y > Mathf.Max((Mathf.Sqrt(size.y)),0.2f) || transform.position.y <= -15) {
-            if(transform.position.y<-16) {
+        else if(startPos.y-transform.position.y > Mathf.Max(size.y,0.2f) || transform.position.y <= -15) 
+        {
+            if(transform.position.y < -16) 
+            {
                 transform.position=new Vector3(transform.position.x,-16,transform.position.z);
                 GetComponent<Rigidbody>().AddForce(Vector3.up*0.05f, ForceMode.VelocityChange); 
-                }            
-             GetComponent<Rigidbody>().AddForce(Vector3.up*amplitude, ForceMode.Force); 
-            // Debug.Log("Going up");
-             }
+            }       
+            GetComponent<Rigidbody>().AddForce(Vector3.up*amplitude, ForceMode.Force); 
+            Debug.Log("Going up");
+        }
         
     }
 }

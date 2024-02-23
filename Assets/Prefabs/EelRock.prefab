@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6480444368294906162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EelRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock3
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5921ab90e7407e24099357d01ca6c088, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5921ab90e7407e24099357d01ca6c088, type: 3}
 --- !u!4 &7939639819735480953 stripped
@@ -114,6 +118,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6480444368294906162}
     m_Modifications:
+    - target: {fileID: -6288907929385596766, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5070088282208428375, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4368772461960064961, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -158,9 +174,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.887
       objectReference: {fileID: 0}
+    - target: {fileID: -2343002672903348754, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1656633497874202510, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
       propertyPath: m_Name
       value: Eel
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -341737338986144246, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880936574994235004, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328988315555784451, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085544327347355916, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586055287445417022, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702732181415879588, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027124049610543990, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76d33bbbf7f56949b8dcc43275b43ca, type: 3}
@@ -235,6 +291,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 1f12234f0640b054f9b3fcf10834ac47, type: 3}
       propertyPath: m_Name
       value: Rock9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1f12234f0640b054f9b3fcf10834ac47, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f12234f0640b054f9b3fcf10834ac47, type: 3}

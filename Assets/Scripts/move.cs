@@ -82,12 +82,15 @@ public class move : MonoBehaviour
             } else if (RigContainer.transform.position.y + translateVect.y > maxHeight){
                 translateVect.y = 0;
             }
-            if (RigContainer.transform.position.x + translateVect.x < xRange[0] || RigContainer.transform.position.x + translateVect.x > xRange[1]){
-                 translateVect.x = 0;
-            } 
-             if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.z > zRange[1]){
-                 translateVect.z = 0;
-            } 
+            if (xRange.Length >= 2 && zRange.Length >= 2)
+            {
+                if (RigContainer.transform.position.x + translateVect.x < xRange[0] || RigContainer.transform.position.x + translateVect.x > xRange[1]){
+                     translateVect.x = 0;
+                } 
+                 if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.z > zRange[1]){
+                     translateVect.z = 0;
+                } 
+            }
 
 
             RigContainer.transform.position += translateVect;

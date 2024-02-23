@@ -76,17 +76,17 @@ public class EndScene : MonoBehaviour
         AudioSource.PlayClipAtPoint(audioClip[index],fallPoint, 0.8f+(0.2f*index));
 
         //play trash sound once for little pile, multiple times simultaneously with offset for big pile
-        for(int i = 0; i<count; i++){
+        for(int i = 0; i < count; i++){
             GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-            prefab.GetComponent<Rigidbody>().useGravity=true;
-            prefab.GetComponent<Collider>().isTrigger = false;
-            prefab.GetComponent<Floater>().enabled=false;
             GameObject trash = Instantiate(prefab, spawnPoints[index], Quaternion.identity);
+            trash.GetComponent<Rigidbody>().useGravity = true;
+            trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+            trash.GetComponent<Collider>().isTrigger = false;
+            trash.GetComponent<Floater>().enabled = false;
             Debug.Log(trash.transform.position);
-
-        }
-            //wait a random amount of time in the determined range between each spawn
             yield return new WaitForSeconds(0.2f);
+        }
+        //wait a random amount of time in the determined range between each spawn
     }
 
 }

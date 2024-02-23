@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -425564245221789560}
   - component: {fileID: 674954109852940881}
   - component: {fileID: 1632008268789621637}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Aluminum_Can_01_Opened
   m_TagString: Trash
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!23 &4134331648378082885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 15
   amplitude: 0.2
+  size: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!33 &674954109852940881
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,7 +124,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8937203548101437557}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
