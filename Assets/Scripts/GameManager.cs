@@ -105,11 +105,13 @@ public class GameManager : MonoBehaviour
         }
     //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
     public void ChangeScene() {
+        bool gameStarted = false;
         //if coming out of loading scene, go to boat scene
         if (gameStart) {
             gameStart = false;
             sceneNum = 1;
             sceneName = "Boat_Scene";
+            gameStarted = true;
         }
         //go to end scene if dives are over
         else if (numDives >= 3) {
@@ -135,6 +137,11 @@ public class GameManager : MonoBehaviour
             }
         } 
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+        if (gameStarted)
+        {
+            GameObject.FindWithTag("Player").transform.rotation.eulerAngles.Set(0, 180, 0);
+        }
     }
 
 //use FindObjectOfType<GameManager>().triggerAudio(clip #);

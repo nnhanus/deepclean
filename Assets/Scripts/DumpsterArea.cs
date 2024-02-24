@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DumpsterArea : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject grip;
+    public TrashPicker trashPicker;
     public AudioSource doBetter;
     public AudioSource goodJob;
     public AudioSource trashSounds;
@@ -28,7 +29,7 @@ public class DumpsterArea : MonoBehaviour
     public void OnTriggerEnter(Collider other){
         Debug.Log("Trigger Enter");
         Debug.Log(other.gameObject);
-        if (other.gameObject == player){
+        if (other.gameObject == grip){
             openTrash.Play();
             this.transform.GetChild(0).Rotate(0f,-90f,0f);
             this.transform.GetChild(1).Rotate(0f,-90f,0f);
@@ -36,16 +37,14 @@ public class DumpsterArea : MonoBehaviour
         
     }
     public void OnTriggerStay(Collider other){
-        if (other.gameObject == player){
-            if (other.transform.up.y < 0f){
-                trashSounds.Play();
-                // trashBag_Script.emptyTrash();
-            }
+        if (other.gameObject == grip && other.transform.up.y < 0f && trashPicker.hasBag){
+            trashSounds.Play();
+            // trashBag_Script.emptyTrash();
         }
     }
 
     public void OnTriggerExit(Collider other){
-        if (other.gameObject == player){
+        if (other.gameObject == grip){
             
             //  float random = Random.Range(0f,1f);
             // Debug.Log("random: " + random);

@@ -15,6 +15,7 @@ public class TrashPicker : MonoBehaviour
 
     public GameObject grabbed;
     public bool hasTrash;
+    public bool hasBag;
     private Quaternion initialRotation;
     private AudioSource audioSource;
     GameManager manager;
@@ -29,6 +30,7 @@ public class TrashPicker : MonoBehaviour
         manager=FindObjectOfType<GameManager>();
         collectedTrash = new List<GameObject>();
         hasTrash = false;
+        hasBag = false;
         audioSource = GetComponent<AudioSource>();
         trashBag_Script = trashBag.GetComponent<trashbag>();
     }
@@ -36,15 +38,8 @@ public class TrashPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (hasTrash)
-        //{
-           // Debug.Log("has trash");
-          //  grabbed.transform.SetPositionAndRotation(transform.position, initialRotation * transform.rotation);
-           // grabbed.transform.localScale = transform.localScale;
-        //}
         if( hasTrash && m_GripReference.action.ReadValue<float>() < float.Epsilon)
         {
-            
             releaseTrash();
         }
     }
@@ -57,7 +52,7 @@ public class TrashPicker : MonoBehaviour
         // Debug.Log(other.tag);
         if (manager.sceneName.Equals("Boat_Scene") && other.tag == "TrashBag"){
             trashBag.transform.parent = this.transform;
-
+            hasBag = true;
         }
 
         if (other.tag == "TrashBag"
