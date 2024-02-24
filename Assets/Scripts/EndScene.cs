@@ -41,7 +41,7 @@ public class EndScene : MonoBehaviour
         scoreDisplay.SetText("You collected "+manager.GetScore()+" pieces of garbage. That is 0000000000"+ (manager.GetScore()/52.5f)+"% of the garbage currently in the ocean.");
         Debug.Log("You collected "+manager.GetScore()+" pieces of garbage. That is 0000000000"+ (3/52.5f)+"% of the garbage currently in the ocean.");
                //test
-        StartCoroutine(SpawnTrash(5));
+        StartCoroutine(SpawnTrash(50));
     }
     private void Update(){
 
@@ -78,7 +78,7 @@ public class EndScene : MonoBehaviour
         //play trash sound once for little pile, multiple times simultaneously with offset for big pile
         for(int i = 0; i < count; i++){
             GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-            GameObject trash = Instantiate(prefab, spawnPoints[index], Quaternion.identity);
+            GameObject trash = Instantiate(prefab, transform.position, Quaternion.identity);
             trash.GetComponent<Rigidbody>().useGravity = true;
             trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
             trash.GetComponent<Collider>().isTrigger = false;
