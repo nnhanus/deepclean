@@ -119,7 +119,6 @@ public class TrashPicker : MonoBehaviour
         trashBag_Script.addTrashToBag(grabbed);
         grabbed.transform.SetParent(null);
         manager.RemoveTrashFromWater(grabbed);
-        //grabbed.GetComponent<Floater>().enabled = true;
         grabbed = null;
         hasTrash = false;
         
