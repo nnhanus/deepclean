@@ -5165,6 +5165,7 @@ MonoBehaviour:
   handSphere: {fileID: 305660648}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &305660648
@@ -7363,7 +7364,7 @@ GameObject:
   - component: {fileID: 470090955}
   m_Layer: 0
   m_Name: 'PlayerRig '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11405,7 +11406,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5000051, y: 0.49999958}
   m_AnchorMax: {x: 0.5000051, y: 0.49999958}
   m_AnchoredPosition: {x: 91.88262, y: -105.49991}
-  m_SizeDelta: {x: 355.96777, y: 0}
+  m_SizeDelta: {x: 355.96777, y: 155}
   m_Pivot: {x: 0.7581209, y: -0.00000007946697}
 --- !u!114 &747738769
 MonoBehaviour:
@@ -22705,10 +22706,10 @@ RectTransform:
   m_Father: {fileID: 747738768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 182, y: -47.5}
+  m_SizeDelta: {x: 300, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525042031
 MonoBehaviour:
@@ -23374,7 +23375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db7ee7faf7ddd144804e325196c87b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 305660644}
+  grip: {fileID: 0}
+  trashPicker: {fileID: 0}
   doBetter: {fileID: 1543616295}
   goodJob: {fileID: 1543616293}
   trashSounds: {fileID: 1543616296}
@@ -28674,6 +28676,7 @@ MonoBehaviour:
   handSphere: {fileID: 1871917492}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &1871917492
@@ -30168,7 +30171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.000374, y: -1017.87646}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1953115618
@@ -31262,6 +31265,7 @@ MonoBehaviour:
   handSphere: {fileID: 1997239255}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!114 &1997239257
@@ -32043,6 +32047,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerSecond: 10
   amplitude: 0.2
+  size: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!65 &2046611672
 BoxCollider:
   m_ObjectHideFlags: 0
