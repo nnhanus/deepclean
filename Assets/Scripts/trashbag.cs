@@ -28,7 +28,7 @@ public class trashbag : MonoBehaviour
         {
             collectedTrash.Add(trash);
             bagDisplay.SetText(collectedTrash.Count + "/8");
-            gaugeBar.SetValue(collectedTrash.Count / 8 * 100);
+            gaugeBar.SetValue((((float)collectedTrash.Count) / 8) * 100);
         }
         else { FindObjectOfType<GameManager>().triggerAudio(6); }
     }
