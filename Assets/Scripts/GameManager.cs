@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
         else triggerAudio(8);
         totalScore+= trashInBag.Count;
         trashInBag.Clear();
+        if (numDives == 3)
+            triggerAudio(10);
     }
 
     //use FindObjectOfType<GameManager>().AddTrashToWater(trash); in the script that handles spawning trash
