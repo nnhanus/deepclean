@@ -30,6 +30,7 @@ public class DumpsterArea : MonoBehaviour
         Debug.Log("Trigger Enter");
         Debug.Log(other.gameObject);
         if (other.gameObject == grip){
+            Debug.Log("Opened");
             openTrash.Play();
             this.transform.GetChild(0).Rotate(0f,-90f,0f);
             this.transform.GetChild(1).Rotate(0f,-90f,0f);
@@ -37,7 +38,7 @@ public class DumpsterArea : MonoBehaviour
         
     }
     public void OnTriggerStay(Collider other){
-        if (other.gameObject == grip && other.transform.up.y < 0f && trashPicker.hasBag){
+        if (other.gameObject == grip && other.transform.up.y > 0f && trashPicker.hasBag){
             trashSounds.Play();
             // trashBag_Script.emptyTrash();
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38496053, g: 0.60092777, b: 0.6361929, a: 1}
+  m_IndirectSpecularColor: {r: 0.38496056, g: 0.60092807, b: 0.6361924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42336,7 +42336,7 @@ GameObject:
   - component: {fileID: 1709779161}
   - component: {fileID: 1709779162}
   - component: {fileID: 1709779163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: collider
   m_TagString: SceneLoader
   m_Icon: {fileID: 0}

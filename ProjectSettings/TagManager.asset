@@ -10,6 +10,7 @@ TagManager:
   - Coral
   - SceneLoader
   - Dialogue
+  - BoatTrashBag
   layers:
   - Default
   - TransparentFX

@@ -48,9 +48,9 @@ public class TrashPicker : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter picker");
         // Debug.Log(other);
-        // Debug.Log(manager.sceneName);
-        // Debug.Log(other.tag);
-        if (manager.sceneName.Equals("Boat_Scene") && other.tag == "TrashBag"){
+        Debug.Log(manager.sceneName);
+        Debug.Log(other.tag);
+        if (other.tag == "BoatTrashBag"){
             trashBag.transform.parent = this.transform;
             hasBag = true;
         }

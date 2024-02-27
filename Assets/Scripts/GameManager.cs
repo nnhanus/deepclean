@@ -106,11 +106,13 @@ public class GameManager : MonoBehaviour
     //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
     public void ChangeScene() {
         bool gameStarted = false;
+        Debug.Log("gamestart : " + gameStart);
         //if coming out of loading scene, go to boat scene
         if (gameStart) {
             gameStart = false;
             sceneNum = 1;
             sceneName = "Boat_Scene";
+            Debug.Log(sceneName);
             gameStarted = true;
         }
         //go to end scene if dives are over
