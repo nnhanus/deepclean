@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(audioPlayer(clipIndex));
-        if(clipIndex!=11)
+        if(clipIndex<11)
             StartCoroutine(triggerDialogue(clipIndex, audioClips[clipIndex].length)); 
     }
 

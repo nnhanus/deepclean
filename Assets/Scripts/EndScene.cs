@@ -43,6 +43,7 @@ public class EndScene : MonoBehaviour
         scoreDisplay.SetText("You collected "+manager.GetScore()+" pieces of garbage. That is 0000000000"+ (manager.GetScore()/5250000000000)+"% of the garbage currently in the ocean.");
         Debug.Log("You collected "+manager.GetScore()+" pieces of garbage. That is "+ (3/5250000000000)+"% of the garbage currently in the ocean.");
                //test
+        manager.triggerAudio(12);
         StartCoroutine(SpawnTrash(manager.GetScore()));
         StartCoroutine(SpawnTrash(25));
     }

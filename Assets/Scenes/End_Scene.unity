@@ -607,7 +607,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 171
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -9444,6 +9444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2176989545265842977, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: Priority
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4324383202954291333, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -9488,6 +9492,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: audioClips.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dd47097969224479accab3bed6e012, type: 3}
+    - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: audioClips.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 64bc4ae1563099a4fb2866de740b3e81, type: 3}
+    - target: {fileID: 8096428020071626174, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: audioClips.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 64bc4ae1563099a4fb2866de740b3e81, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
 --- !u!1 &558921243
