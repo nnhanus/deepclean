@@ -163,8 +163,8 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(audioPlayer(clipIndex));
-        if(clipIndex<11)
-            StartCoroutine(triggerDialogue(clipIndex, audioClips[clipIndex].length)); 
+        //if(clipIndex<11)
+           // StartCoroutine(triggerDialogue(clipIndex, audioClips[clipIndex].length)); 
     }
 
     private IEnumerator audioPlayer(int clipIndex){
@@ -184,26 +184,29 @@ public class GameManager : MonoBehaviour
             }
             audio.clip=clip;         
         }
-       audio.Play();
+        float audioTime = clip.length;
+        audio.Play();
        //reset to both ears
-       audio.panStereo=0;
+        audio.panStereo=0;
        //yield return new WaitForSeconds(audio.clip.length);
-       yield return null;
-    }
-    private IEnumerator triggerDialogue(int clipIndex, float audioTime){
-        dialogueCanvas.SetActive(true);
-        Debug.Log(dialogueCanvas.activeSelf);
-        TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
-        //Debug.Log(" text : " + textMeshPro.text);
+    //    yield return null;
+    // }
+    // private IEnumerator triggerDialogue(int clipIndex, float audioTime){
+        if(clipIndex<11){
+            dialogueCanvas.SetActive(true);
+            Debug.Log(dialogueCanvas.activeSelf);
+            TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
+            //Debug.Log(" text : " + textMeshPro.text);
 
-        //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
-        string[] dialogue = dialogueSources[clipIndex]; 
-        foreach(string phrase in dialogue){
-            textMeshPro.text = phrase;
-            Debug.Log(phrase +" "+audioTime / dialogue.Length);
-            yield return new WaitForSeconds(audioTime/dialogue.Length);
+            //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
+            string[] dialogue = dialogueSources[clipIndex]; 
+            foreach(string phrase in dialogue){
+                textMeshPro.text = phrase;
+                Debug.Log(phrase +" "+audioTime / dialogue.Length);
+                yield return new WaitForSeconds(audioTime/dialogue.Length);
+            }
+            dialogueCanvas.SetActive(false);
         }
-        dialogueCanvas.SetActive(false);
         yield return null;
     }
 }
