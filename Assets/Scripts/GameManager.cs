@@ -92,6 +92,9 @@ public class GameManager : MonoBehaviour
     public int GetScore(){
         return totalScore;
     }
+     public string GetSceneName(){
+        return sceneName;
+    }
     public int NumTrashInWater(){
         Debug.Log(trashInWater.Count);
         return trashInWater.Count;
