@@ -22,7 +22,7 @@ public class SceneLoader : MonoBehaviour
         Debug.Log("Scene Change trigger" + other);
         if (other.tag == "Player"){
             // SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
-            FindObjectOfType<GameManager>().ChangeScene();
+            GameManager.manager.ChangeScene();
         }
     }
 }

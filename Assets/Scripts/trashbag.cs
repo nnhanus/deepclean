@@ -34,7 +34,7 @@ public class trashbag : MonoBehaviour
     }
 
     public void emptyTrash(){
-        FindObjectOfType<GameManager>().AddToBin(collectedTrash.Count);
+        FindObjectOfType<GameManager>().AddToBin();
         collectedTrash.Clear();
         bagDisplay.SetText(collectedTrash.Count + "/8");
         gaugeBar.SetValue(0);

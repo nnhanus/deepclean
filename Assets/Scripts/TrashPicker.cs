@@ -18,7 +18,7 @@ public class TrashPicker : MonoBehaviour
     public bool hasBag;
     private Quaternion initialRotation;
     private AudioSource audioSource;
-    GameManager manager;
+    public GameManager manager;
 
     public GameObject trashBag;
     private trashbag trashBag_Script;
@@ -27,7 +27,7 @@ public class TrashPicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager=FindObjectOfType<GameManager>();
+        manager = GameManager.manager;
         collectedTrash = new List<GameObject>();
         hasTrash = false;
         hasBag = false;
@@ -60,6 +60,7 @@ public class TrashPicker : MonoBehaviour
         {
             trashToBag();
             GameObject trash = grabbed;
+            manager.trashInBag.Add(trash);
             collectedTrash.Add(trash);
             
         }

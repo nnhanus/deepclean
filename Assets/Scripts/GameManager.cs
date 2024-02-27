@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     int sceneNum;
     public string sceneName = "Intro_Boat_Scene";
-    int totalScore=0;
+    public int totalScore=0;
     public int numDives = 0;
     bool gameStart = true;
     bool gameStarted = false;
 
     //we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
-    List<GameObject> trashInBag;
+    public List<GameObject> trashInBag;
     int numFish=0;
     private AudioSource audio;
     private AudioClip clip;
@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour
     }
 
 //use FindObjectOfType<GameManager>().AddToBin(bagCount); in the script that handles dumpin garbage into the bin
-    public void AddToBin(int bagCount){
+    public void AddToBin(){
         //nice job and do better audios
-        if(bagCount>6) triggerAudio(7);
+        if(trashInBag.Count>6) triggerAudio(7);
         else triggerAudio(8);
-        totalScore+=bagCount;
+        totalScore+= trashInBag.Count;
         trashInBag.Clear();
     }
 

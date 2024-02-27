@@ -4223,6 +4223,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2176989545265842976, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176989545265842976, guid: 048d92fdf2f40b647805b4d7666106d5, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -6887,6 +6891,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!135 &279305979
@@ -38852,6 +38857,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!82 &1569958814
@@ -49361,6 +49367,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 1
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!135 &1995153590
@@ -49543,6 +49550,7 @@ MonoBehaviour:
   xRController: {fileID: 1492593667}
   minHeight: -14.5
   maxHeight: 0
+  moveSpeed: 0.02
 --- !u!136 &1996170013
 CapsuleCollider:
   m_ObjectHideFlags: 0

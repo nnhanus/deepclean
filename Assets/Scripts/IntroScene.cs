@@ -30,7 +30,7 @@ public class IntroScene : MonoBehaviour
     //could change to OnEnable
     private void Start()
     {
-        manager = FindObjectOfType<GameManager>();
+        manager = GameManager.manager;
         // get which dive the player is on (max three)
         collider = GetComponent<Collider>();
         spawnBoundsSize = 0.5f*collider.bounds.size;

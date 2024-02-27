@@ -5,19 +5,21 @@ using UnityEngine;
 public class DumpsterArea : MonoBehaviour
 {
     public GameObject grip;
-    public TrashPicker trashPicker;
+    // public TrashPicker trashPicker;
     public AudioSource doBetter;
     public AudioSource goodJob;
     public AudioSource trashSounds;
     public AudioSource openTrash;
-    // public GameObject trashBag;
+    public GameObject trashBag;
+    public GameManager manager;
     private trashbag trashBag_Script;
 
     // Start is called before the first frame update
     void Start()
     {
-        // trashBag_Script = trashBag.GetComponent<trashbag>();
-        
+        trashBag_Script = trashBag.GetComponent<trashbag>();
+        manager=GameManager.manager;
+        Debug.Log(manager + " " + GameManager.manager);
     }
 
     // Update is called once per frame
@@ -38,9 +40,10 @@ public class DumpsterArea : MonoBehaviour
         
     }
     public void OnTriggerStay(Collider other){
-        if (other.gameObject == grip && other.transform.up.y > 0f && trashPicker.hasBag){
+        Debug.Log(other.transform.up.y);
+        if (other.gameObject == grip && other.transform.up.y < 0f && manager.trashInBag.Count > 0){
             trashSounds.Play();
-            // trashBag_Script.emptyTrash();
+            trashBag_Script.emptyTrash();
         }
     }
 

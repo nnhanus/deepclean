@@ -4842,7 +4842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 305660644}
-  sceneToLoad: Underwater_scene
 --- !u!54 &290478180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7398,6 +7397,7 @@ MonoBehaviour:
   xRController: {fileID: 1534271981}
   minHeight: -14.5
   maxHeight: 0
+  moveSpeed: 0.01
 --- !u!114 &470090950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23393,6 +23393,7 @@ MonoBehaviour:
   goodJob: {fileID: 1543616293}
   trashSounds: {fileID: 1543616296}
   openTrash: {fileID: 1543616292}
+  trashBag: {fileID: 563887996}
 --- !u!82 &1543616292
 AudioSource:
   m_ObjectHideFlags: 0

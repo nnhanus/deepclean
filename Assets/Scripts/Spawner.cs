@@ -15,8 +15,8 @@ public class Spawner : MonoBehaviour
     public int trashLimit = 20;
     private List<Vector3> spawnPoints;
     private bool[] inArea={false,false,false,false};
-     private Vector3 spawnBoundsSize;
-     private Collider collider;
+    private Vector3 spawnBoundsSize;
+    private Collider spawnerCollider;
     public float posVar = 3;
     private int[] trashCounts;
 
@@ -38,8 +38,8 @@ public class Spawner : MonoBehaviour
         // get which dive the player is on (max three)
         numDive = manager.GetDiveNum();
 
-        collider = GetComponent<Collider>();
-        spawnBoundsSize = 0.5f*collider.bounds.size;
+        spawnerCollider = GetComponent<Collider>();
+        spawnBoundsSize = 0.5f*spawnerCollider.bounds.size;
         if(audioSource==null)audioSource = GetComponent<AudioSource>();
         audioSource.Play();
 

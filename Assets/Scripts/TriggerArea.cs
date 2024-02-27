@@ -5,10 +5,12 @@ using UnityEngine;
 public class TriggerArea : MonoBehaviour
 {
     public GameObject player;
+    public GameManager manager;
     int phraseIndex=0;
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameManager.manager;
     }
 
     // Update is called once per frame
@@ -22,8 +24,8 @@ public class TriggerArea : MonoBehaviour
         {
             Debug.Log("Trigger area" + phraseIndex);
             if(phraseIndex==1)
-                FindObjectOfType<GameManager>().triggerAudio(3);
-            FindObjectOfType<GameManager>().triggerAudio(4+phraseIndex);
+                manager.triggerAudio(3);
+            manager.triggerAudio(4+phraseIndex);
             phraseIndex=phraseIndex*(-1)+1;
 
         }
