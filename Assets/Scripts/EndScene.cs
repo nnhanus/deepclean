@@ -40,8 +40,8 @@ public class EndScene : MonoBehaviour
         spawnPoints.Add(new Vector3 (0, 5, 0));
         // could spawn trash that was in water in last scene from game manager
         //reset count of trash from each spawn point to zer0
-        scoreDisplay.SetText("You collected "+manager.GetScore()+" pieces of garbage. That is 0000000000"+ (manager.GetScore()/5250000000000)+"% of the garbage currently in the ocean.");
-        Debug.Log("You collected "+manager.GetScore()+" pieces of garbage. That is "+ (3/5250000000000)+"% of the garbage currently in the ocean.");
+        scoreDisplay.SetText(string.Format("You collected {0} pieces of garbage. That is {1:F10}% of the garbage currently in the ocean.", manager.GetScore(), manager.GetScore()/5250000000000));
+        Debug.Log("You collected "+manager.GetScore()+" pieces of garbage. That is "+ (manager.GetScore() / 5250000000000)+"% of the garbage currently in the ocean.");
                //test
         manager.triggerAudio(12);
         StartCoroutine(SpawnTrash(manager.GetScore()));
