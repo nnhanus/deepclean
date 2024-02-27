@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1080437322}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7475,7 +7475,7 @@ GameObject:
   - component: {fileID: 289724728}
   - component: {fileID: 289724727}
   - component: {fileID: 289724726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8175,6 +8175,7 @@ MonoBehaviour:
   handSphere: {fileID: 305660648}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &305660648
@@ -12088,7 +12089,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470090948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0c86374c52fe8042982b29bd999f82a, type: 3}
   m_Name: 
@@ -14594,7 +14595,7 @@ GameObject:
   - component: {fileID: 563887999}
   - component: {fileID: 563887998}
   - component: {fileID: 563887997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trashBag
   m_TagString: TrashBag
   m_Icon: {fileID: 0}
@@ -14799,7 +14800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563887996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.569, y: -1, z: 0}
+  m_LocalPosition: {x: 0.569, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1374505171}
@@ -26538,7 +26539,7 @@ GameObject:
   - component: {fileID: 1067111656}
   - component: {fileID: 1067111658}
   - component: {fileID: 1067111657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33024,6 +33025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bag.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5128562943236321987, guid: d97f674796e33ba4abbd5f3810f36fc9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8176013595528904912, guid: d97f674796e33ba4abbd5f3810f36fc9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -37418,7 +37423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db7ee7faf7ddd144804e325196c87b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  grip: {fileID: 0}
+  trashPicker: {fileID: 0}
   doBetter: {fileID: 1543616295}
   goodJob: {fileID: 1543616293}
   trashSounds: {fileID: 1543616296}
@@ -45151,6 +45157,7 @@ MonoBehaviour:
   handSphere: {fileID: 1871917492}
   grabbed: {fileID: 0}
   hasTrash: 1
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &1871917492
@@ -47312,7 +47319,7 @@ GameObject:
   - component: {fileID: 1953115617}
   - component: {fileID: 1953115618}
   - component: {fileID: 1953115619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bag_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48497,6 +48504,7 @@ MonoBehaviour:
   handSphere: {fileID: 1997239255}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!114 &1997239257
@@ -49251,9 +49259,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImgFillRound
       objectReference: {fileID: 0}
+    - target: {fileID: 1899898029282573492, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899898029993018170, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1899898029993018170, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899898030116799272, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899898030144098109, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899898030172710284, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6604ce1cd5dac8c40b0b212a9a554f5f, type: 3}
