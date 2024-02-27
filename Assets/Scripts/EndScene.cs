@@ -45,7 +45,6 @@ public class EndScene : MonoBehaviour
                //test
         manager.triggerAudio(12);
         StartCoroutine(SpawnTrash(manager.GetScore()));
-        StartCoroutine(SpawnTrash(25));
     }
     private void Update(){
 
@@ -73,41 +72,43 @@ public class EndScene : MonoBehaviour
     {
         Vector3 spawnPoint = transform.position;
         int index=0;
-        if(count>24) {
-            index=1;
-            audioSource.loop=true;
-            spawnPoint = oceanSpawnPoint.transform.position;
-        }
         //Vector3 fallPoint = new Vector3 (spawnPoints[index].x,0,spawnPoints[index].z);
         AudioSource.PlayClipAtPoint(audioClip[index],spawnPoint, 0.8f+(0.2f*index));
 
         //play trash sound once for little pile, multiple times simultaneously with offset for big pile
-        if (count <= 24)
-        {
-            for(int i = 0; i < count; i++){
-                GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-                GameObject trash = Instantiate(prefab, spawnPoint, Quaternion.identity);
-                trash.GetComponent<Rigidbody>().useGravity = true;
-                trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-                trash.GetComponent<Collider>().isTrigger = false;
-                trash.GetComponent<Floater>().enabled = false;
-                //Debug.Log(trash.transform.position);
-                yield return new WaitForSeconds(0.2f);
-            }
+        for(int i = 0; i < count; i++){
+            GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
+            GameObject trash = Instantiate(prefab, spawnPoint, Quaternion.identity);
+            trash.GetComponent<Rigidbody>().useGravity = true;
+            trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+            trash.GetComponent<Collider>().isTrigger = false;
+            trash.GetComponent<Floater>().enabled = false;
+            //Debug.Log(trash.transform.position);
+            yield return new WaitForSeconds(0.2f);
         }
-        else
+        //wait a random amount of time in the determined range between each spawn
+        StartCoroutine(SpawnOceanTrash());
+    }
+
+    private IEnumerator SpawnOceanTrash()
+    {
+        int index = 1;
+        audioSource.loop = true;
+        Vector3 spawnPoint = oceanSpawnPoint.transform.position;
+        
+        //Vector3 fallPoint = new Vector3 (spawnPoints[index].x,0,spawnPoints[index].z);
+        AudioSource.PlayClipAtPoint(audioClip[index], spawnPoint, 0.8f + (0.2f * index));
+
+        while (true)
         {
-            while (true)
-            {
-                GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
-                GameObject trash = Instantiate(prefab, spawnPoint, Quaternion.identity);
-                trash.GetComponent<Rigidbody>().useGravity = true;
-                trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-                trash.GetComponent<Collider>().isTrigger = false;
-                trash.GetComponent<Floater>().enabled = false;
-                //Debug.Log(trash.transform.position);
-                yield return new WaitForSeconds(0.2f);
-            }
+            GameObject prefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
+            GameObject trash = Instantiate(prefab, spawnPoint, Quaternion.identity);
+            trash.GetComponent<Rigidbody>().useGravity = true;
+            trash.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+            trash.GetComponent<Collider>().isTrigger = false;
+            trash.GetComponent<Floater>().enabled = false;
+            //Debug.Log(trash.transform.position);
+            yield return new WaitForSeconds(0.2f);
         }
         //wait a random amount of time in the determined range between each spawn
     }
