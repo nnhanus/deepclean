@@ -48,12 +48,9 @@ public class TrashPicker : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter picker");
         // Debug.Log(other);
-        Debug.Log(manager.sceneName);
+        // Debug.Log(manager.sceneName);
         Debug.Log(other.tag);
-        if (other.tag == "BoatTrashBag"){
-            trashBag.transform.parent = this.transform;
-            hasBag = true;
-        }
+        
 
         if (other.tag == "TrashBag"
             && gripReference != null
