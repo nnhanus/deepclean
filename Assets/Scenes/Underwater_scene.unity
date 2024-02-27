@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38496053, g: 0.60092777, b: 0.6361929, a: 1}
+  m_IndirectSpecularColor: {r: 0.38496056, g: 0.60092807, b: 0.6361924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6729,7 +6729,7 @@ GameObject:
   - component: {fileID: 279305978}
   - component: {fileID: 279305980}
   - component: {fileID: 279305981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6858,6 +6858,7 @@ MonoBehaviour:
   handSphere: {fileID: 279305979}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!135 &279305979
@@ -38659,7 +38660,7 @@ GameObject:
   - component: {fileID: 1569958813}
   - component: {fileID: 1569958812}
   - component: {fileID: 1569958814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38802,6 +38803,7 @@ MonoBehaviour:
   handSphere: {fileID: 1569958812}
   grabbed: {fileID: 0}
   hasTrash: 0
+  hasBag: 0
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!82 &1569958814
@@ -49307,6 +49309,7 @@ MonoBehaviour:
   handSphere: {fileID: 1995153590}
   grabbed: {fileID: 0}
   hasTrash: 1
+  hasBag: 0
   trashBag: {fileID: 2604815}
   collectedTrash: []
 --- !u!135 &1995153590
