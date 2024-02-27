@@ -45,7 +45,7 @@ public class Fish : MonoBehaviour
         if(Mathf.Abs(transform.position.x)>26||Mathf.Abs(transform.position.z)>26||transform.position.y>-0.2||transform.position.y<-15.2){
             //if fish is getting close to the edge boundaries, turn it around
             //rot_y+=180;
-            Debug.Log("Out of Bounds " + transform.position);
+            // Debug.Log("Out of Bounds " + transform.position);
             transform.localScale = Vector3.one * scale;
             scale -= growthRate * Time.deltaTime;
             if (scale < minSize) Destroy (gameObject);
@@ -66,7 +66,7 @@ public class Fish : MonoBehaviour
         
     
     void OnDestroy(){
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
         //Fade doesn't work because material isnt transparent, need to figure out work around
        // iTween.FadeTo(gameObject, iTween.Hash("alpha", 0f, "time", 1.0f));
         FindObjectOfType<GameManager>().ChangeNumFishInWater(-1);

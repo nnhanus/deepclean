@@ -50,8 +50,13 @@ public class IntroScene : MonoBehaviour
             Debug.Log("SecondaryButton");
             manager.ChangeScene();
         }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("Space");
+            manager.ChangeScene();
+        }
     }
-    
+
 
     private void OnDisable()
     {

@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
     public string sceneName = "Intro_Boat_Scene";
     int totalScore=0;
     public int numDives = 0;
-    bool gameStart =true;
-    
+    bool gameStart = true;
+    bool gameStarted = false;
+
     //we can use this list to load existing trash from before upon entering water
     List<GameObject> trashInWater;
     List<GameObject> trashInBag;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     private AudioClip clip;
     public AudioClip[] audioClips;
     //public GameObject TMP_GO;
-    GameObject dialogueCanvas;
+    public GameObject dialogueCanvas;
     List<string[]> dialogueSources = new List<string[]>();
     // Start is called before the first frame update
     private void Awake(){
@@ -40,10 +41,14 @@ public class GameManager : MonoBehaviour
         audio= GetComponent<AudioSource>();
         trashInWater= new List<GameObject>();
         trashInBag = new List<GameObject>();
-        
-  
-        dialogueCanvas=GameObject.FindGameObjectsWithTag("Dialogue")[0];
-        dialogueCanvas.SetActive(false);
+
+        Debug.Log(SceneManager.GetActiveScene().name);
+        sceneName = SceneManager.GetActiveScene().name;
+        gameStarted = false;
+        Debug.Log(sceneName);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         //Debug.Log(dialogueCanvas);
             
         //dialogueCanvas.SetActive(false);
@@ -59,9 +64,25 @@ public class GameManager : MonoBehaviour
         dialogueSources.Add(new string[]{"We've only got time for this last dive, so make it count!"});
         dialogueSources.Add(new string[]{"Thanks again for helping out with the clean up! We'd love to have you back out here again sometime."});
 
-        triggerAudio(3);
+        if (sceneName == "Intro_Boat_Scene")
+            triggerAudio(2);
         //triggerAudio(1);
         //triggerAudio(2);
+    }
+
+    public void OnSceneLoaded(Scene s, LoadSceneMode l)
+    {
+        Debug.Log(gameStarted);
+        if (gameStarted)
+        {
+            Debug.Log("rotated player");
+            GameObject player = GameObject.FindWithTag("Player");
+            player.transform.RotateAround(player.transform.position, player.transform.up, -90);
+            Debug.Log(GameObject.FindWithTag("Player").transform.rotation.eulerAngles);
+            gameStarted = false;
+        }
+        dialogueCanvas = GameObject.FindGameObjectsWithTag("Dialogue")[0];
+        dialogueCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -111,46 +132,37 @@ public class GameManager : MonoBehaviour
         }
     //use FindObjectOfType<GameManager>().ChangeScene(); in the script that handles the trigger area for moving from boat to water
     public void ChangeScene() {
-       // bool gameStarted = false;
         //if coming out of loading scene, go to boat scene
         if (gameStart) {
             gameStart = false;
-            sceneNum = 1;
             sceneName = "Boat_Scene";
-           // gameStarted = true;
+            gameStarted = true;
         }
         //go to end scene if dives are over
-        else if (numDives >= 3) {
-            sceneNum = 3;
+        else if (numDives >= 3 && SceneManager.GetActiveScene().name.Equals("Boat_Scene")) {
             sceneName = "End_Scene";
         }
         //otherwise switch between boat and underwater scene
-        else {
-            sceneNum = (sceneNum - 1) * (-1) + 2;
-            if (sceneName.Equals("Boat_Scene"))
-            {
-                sceneName = "Underwater_scene";
-                triggerAudio(11);
-                numDives+=1;
-                if(numDives==3){
-                    //trigger last dive audio
-                    triggerAudio(9);
-                }
-            } else
-            {
-                sceneName = "Boat_Scene";
-                trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
+        else if (SceneManager.GetActiveScene().name.Equals("Boat_Scene"))
+        {
+            sceneName = "Underwater_scene";
+            triggerAudio(11);
+            numDives+=1;
+            if(numDives==3){
+                //trigger last dive audio
+                triggerAudio(9);
             }
         } 
+        else
+        {
+            sceneName = "Boat_Scene";
+            trashInBag.AddRange(FindObjectOfType<TrashPicker>().collectedTrash);
+        }
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
-        // if (gameStarted)
-        // {
-        //     GameObject.FindWithTag("Player").transform.rotation.eulerAngles.Set(0, 180, 0);
-        // }
     }
+    
 
-//use FindObjectOfType<GameManager>().triggerAudio(clip #);
+    //use FindObjectOfType<GameManager>().triggerAudio(clip #);
     public void triggerAudio(int clipIndex){
         StartCoroutine(waitForSound(clipIndex));
     }
@@ -210,9 +222,11 @@ public class GameManager : MonoBehaviour
             if (clipIndex == 3 && gameStart)
                 triggerAudio(1);
             else if (clipIndex == 1)
-            {
                 triggerAudio(2);
-            }
+            else if (clipIndex == 2)
+                ChangeScene();
+            //else if (clipIndex == 4)
+                //triggerAudio(5);
         }
         yield return null;
     }

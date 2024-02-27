@@ -45,7 +45,7 @@ public class Floater : MonoBehaviour
                 GetComponent<Rigidbody>().AddForce(Vector3.down*0.05f, ForceMode.VelocityChange); 
             }
             GetComponent<Rigidbody>().AddForce(Vector3.down*amplitude, ForceMode.Force); 
-            Debug.Log("Going down");
+            //Debug.Log("Going down");
         }
         else if(startPos.y-transform.position.y > Mathf.Max(size.y,0.2f) || transform.position.y <= -15) 
         {
@@ -55,7 +55,7 @@ public class Floater : MonoBehaviour
                 GetComponent<Rigidbody>().AddForce(Vector3.up*0.05f, ForceMode.VelocityChange); 
             }       
             GetComponent<Rigidbody>().AddForce(Vector3.up*amplitude, ForceMode.Force); 
-            Debug.Log("Going up");
+            //Debug.Log("Going up");
         }
         
     }

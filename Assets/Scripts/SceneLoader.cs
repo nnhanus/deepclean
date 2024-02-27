@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public GameObject player;
-    public string sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,8 @@ public class SceneLoader : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.transform == player.transform){
+        Debug.Log("Scene Change trigger" + other);
+        if (other.tag == "Player"){
             // SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
             FindObjectOfType<GameManager>().ChangeScene();
         }
