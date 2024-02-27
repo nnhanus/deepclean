@@ -556,6 +556,7 @@ MonoBehaviour:
   - {fileID: 8732697221951055004, guid: fe0c9e8e28103124b8a3d69106197317, type: 3}
   - {fileID: 8937203548101437557, guid: 1c589626e403bdb448889ec23a260fdf, type: 3}
   - {fileID: 215407527047426673, guid: d1a415541c754354586ed9f6182af874, type: 3}
+  oceanSpawnPoint: {fileID: 1176730280}
   player: {fileID: 1075245630}
   manager: {fileID: 1668086118}
   scoreDisplay: {fileID: 730636292}
@@ -584,6 +585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 915360266}
+  - {fileID: 1176730281}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6024,7 +6026,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 96, y: 49.8}
-  m_SizeDelta: {x: 100, y: 50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398456914
 MonoBehaviour:
@@ -6081,8 +6083,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18938,6 +18940,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169834802}
   m_CullTransparentMesh: 1
+--- !u!1 &1176730280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176730281}
+  m_Layer: 0
+  m_Name: OceanSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1176730281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176730280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 24143131}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180908244
 GameObject:
   m_ObjectHideFlags: 0
