@@ -5169,6 +5169,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &305660648
@@ -19732,7 +19733,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 49e0d1f5eeb304c4f8b25fb48dfa07f3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23388,12 +23389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grip: {fileID: 305660644}
-  trashPicker: {fileID: 305660647}
   doBetter: {fileID: 1543616295}
   goodJob: {fileID: 1543616293}
   trashSounds: {fileID: 1543616296}
   openTrash: {fileID: 1543616292}
   trashBag: {fileID: 563887996}
+  manager: {fileID: 0}
 --- !u!82 &1543616292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28690,6 +28691,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &1871917492
@@ -29343,6 +29345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 470090948}
+  manager: {fileID: 0}
 --- !u!82 &1915633940
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31303,6 +31306,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!114 &1997239257

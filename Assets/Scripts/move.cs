@@ -37,7 +37,6 @@ public class move : MonoBehaviour
 
     private void Start()
     {
-
         Vector3 plusX = new Vector3(moveSpeed, 0f, 0f);
         Vector3 minusX = new Vector3(-moveSpeed, 0f, 0f);
         Vector3 plusZ = new Vector3(0f, 0f, moveSpeed);

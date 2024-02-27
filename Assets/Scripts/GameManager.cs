@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         dialogueSources.Add(new string[]{"Thanks again for helping out with the clean up! We'd love to have you back out here again sometime."});
 
         if (sceneName == "Intro_Boat_Scene")
-            triggerAudio(2);
+            triggerAudio(3);
         //triggerAudio(1);
         //triggerAudio(2);
     }
