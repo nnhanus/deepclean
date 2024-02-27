@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
     //    yield return null;
     // }
     // private IEnumerator triggerDialogue(int clipIndex, float audioTime){
-        if(clipIndex<11){
+        if(clipIndex<11 && !sceneName.Equals("Underwater_scene")){
             dialogueCanvas.SetActive(true);
             Debug.Log(dialogueCanvas.activeSelf);
             TMP_Text textMeshPro = FindObjectOfType<TMP_Text>();
