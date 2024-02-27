@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
         dialogueSources.Add(new string[]{"We've only got time for this last dive, so make it count!"});
         dialogueSources.Add(new string[]{"Thanks again for helping out with the clean up! We'd love to have you back out here again sometime."});
 
+        triggerAudio(3);
+        triggerAudio(1);
+        triggerAudio(2);
     }
 
     // Update is called once per frame
