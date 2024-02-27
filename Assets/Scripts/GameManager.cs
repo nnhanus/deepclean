@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         dialogueSources.Add(new string[]{"We've only got time for this last dive, so make it count!"});
         dialogueSources.Add(new string[]{"Thanks again for helping out with the clean up! We'd love to have you back out here again sometime."});
 
-        triggerAudio(3);
+        //triggerAudio(3);
         triggerAudio(1);
         triggerAudio(2);
     }
@@ -201,11 +201,12 @@ public class GameManager : MonoBehaviour
             //TextMeshPro textMeshPro = TMP_GO.GetComponent<TextMeshPro>();
             string[] dialogue = dialogueSources[clipIndex]; 
             foreach(string phrase in dialogue){
+                dialogueCanvas.SetActive(true);
                 textMeshPro.text = phrase;
                 Debug.Log(phrase +" "+audioTime / dialogue.Length);
                 yield return new WaitForSeconds(audioTime/dialogue.Length);
+                dialogueCanvas.SetActive(false);
             }
-            dialogueCanvas.SetActive(false);
         }
         yield return null;
     }
