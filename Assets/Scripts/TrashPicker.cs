@@ -56,7 +56,7 @@ public class TrashPicker : MonoBehaviour
             && gripReference != null
             && gripReference.action != null
             && gripReference.action.ReadValue<float>() > float.Epsilon
-            && hasTrash)
+            && hasTrash && trashBag_Script.collectedTrash.Count)
         {
             trashToBag();
             GameObject trash = grabbed;
