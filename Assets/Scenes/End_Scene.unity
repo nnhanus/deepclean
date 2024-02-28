@@ -25604,6 +25604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoseMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4346727374823547005, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -33289,6 +33293,10 @@ PrefabInstance:
     - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_Name
       value: PoseMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4346727374823547005, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_RootOrder

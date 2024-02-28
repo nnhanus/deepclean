@@ -37,10 +37,10 @@ public class move : MonoBehaviour
 
     private void Start()
     {
-        Vector3 plusX = new Vector3(moveSpeed, 0f, 0f);
-        Vector3 minusX = new Vector3(-moveSpeed, 0f, 0f);
-        Vector3 plusZ = new Vector3(0f, 0f, moveSpeed);
-        Vector3 minusZ = new Vector3(0f, 0f, -moveSpeed);
+        plusX = new Vector3(moveSpeed, 0f, 0f);
+        minusX = new Vector3(-moveSpeed, 0f, 0f);
+        plusZ = new Vector3(0f, 0f, moveSpeed);
+        minusZ = new Vector3(0f, 0f, -moveSpeed);
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class move : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(xRController.gameObject.transform.rotation.eulerAngles);
             Matrix4x4 m = Matrix4x4.Rotate(rotation);
             
-           // Debug.Log("x = " + value.x + ", y = " + value.y);
+           Debug.Log("x = " + value.x + ", y = " + value.y);
 
             if (value.x < -0.25)
             {
@@ -78,7 +78,7 @@ public class move : MonoBehaviour
                 translateVect += m.MultiplyPoint3x4(plusX);
                 //translateVect.y = 0;
             }
-
+            Debug.Log("transVect:" + translateVect);
             //translateVect *= value;
             //translateVect.y = 0;
 
@@ -99,7 +99,7 @@ public class move : MonoBehaviour
                 } 
             }
 
-
+            
             RigContainer.transform.position += translateVect;
         }
 
@@ -132,7 +132,7 @@ public class move : MonoBehaviour
         if (RigContainer.transform.position.z + translateVect.z < zRange[0] || RigContainer.transform.position.z + translateVect.z > zRange[1]){
                  translateVect.z = 0;
         } 
-        RigContainer.transform.position += translateVect;
+        //RigContainer.transform.position += translateVect;
         //arrow movement for testing purposes above
 
         //Here I tried to use the volume key as up and down but didn't work

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1080437322}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5067,6 +5067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoseMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4346727374823547005, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8175,6 +8179,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &305660648
@@ -14601,7 +14606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &563887997
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15721,6 +15726,10 @@ PrefabInstance:
     - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_Name
       value: PoseMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346727374823546882, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4346727374823547005, guid: bb80d5486fc7a7f428255d7f539caf18, type: 3}
       propertyPath: m_RootOrder
@@ -37420,11 +37429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grip: {fileID: 0}
-  trashPicker: {fileID: 0}
   doBetter: {fileID: 1543616295}
   goodJob: {fileID: 1543616293}
   trashSounds: {fileID: 1543616296}
   openTrash: {fileID: 1543616292}
+  trashBag: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!82 &1543616292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -45154,6 +45164,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 1
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!135 &1871917492
@@ -48501,6 +48512,7 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   hasTrash: 0
   hasBag: 0
+  manager: {fileID: 0}
   trashBag: {fileID: 563887996}
   collectedTrash: []
 --- !u!114 &1997239257
